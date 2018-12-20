@@ -1,45 +1,101 @@
 <?php /* Template Name: Demo Page Template */ get_header(); ?>
 
-	<main role="main">
-		<!-- section -->
-		<section>
+    <div id="main-content" class="main-content">
 
-			<h1><?php the_title(); ?></h1>
+        <?php
+	if ( is_front_page() && twentyfourteen_has_featured_posts() ) {
+		// Include the featured content template.
+		get_template_part( 'featured-content' );
+	}
+?>
+            <div id="primary" class="content-area">
+                <div id="content" class="site-content" role="main">
+                    <div id="mainSec" class="container">
+                        <?php
+    $loop = new WP_Query( array( 'post_type' => 'main') );
+    if ( $loop->have_posts() ) :
+        while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-		<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+                            <div class="video">
+                                <div class="col-md-12">
+                                    <iframe src="<?php echo get_post_meta( get_the_ID(), 'vidLink', true ); ?>">
+                                    </iframe>
+                                </div>
+                            </div>
+                            <div class="numbers">
+                                <div class="col-md-4">
+                                    <div class="number">
+                                        <?php echo get_post_meta( get_the_ID(), 'roi', true ); ?>
+                                    </div>
+                                    <label>ROI</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="number">
+                                        <?php echo get_post_meta( get_the_ID(), 'countries', true ); ?>
+                                    </div>
 
-			<!-- article -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                                    <label>Countries</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="number">
+                                        <?php echo get_post_meta( get_the_ID(), 'epc', true ); ?>
+                                    </div>
 
-				<?php the_content(); ?>
+                                    <label>EPC</label>
+                                </div>
+                            </div>
+                            <?php endwhile;
 
-				<?php comments_template( '', true ); // Remove if you don't want comments ?>
+	endif;
+    wp_reset_postdata();
+?>
 
-				<br class="clear">
+                    </div>
 
-				<?php edit_post_link(); ?>
 
-			</article>
-			<!-- /article -->
 
-		<?php endwhile; ?>
+<!--advertisers start-->
 
-		<?php else: ?>
+                    <div id="advertisers" class="container-fluid">
+						<div class="container">
+                        <?php
+    $loop = new WP_Query( array( 'post_type' => 'advertisers') );
+    if ( $loop->have_posts() ) :
+        while ( $loop->have_posts() ) : $loop->the_post(); ?>
+        			<?php the_content(); // Dynamic Content ?>
 
-			<!-- article -->
-			<article>
+                            <div class="advImg">
+                                <img src="<?php echo get_post_meta( get_the_ID(), 'podcast_file', true ); ?>"/>
+                            </div>
+							<div class="labels">
+								<label><?php echo get_post_meta( get_the_ID(), 'sectionLabel', true ); ?></label>
+								<h2 class="sec-title"><?php echo get_post_meta( get_the_ID(), 'sectionName', true ); ?></h2>
+								<div class="plus-icon">+</div>
+							</div>
+							<div class="adv-content">
+								<p>  <?php echo get_post_meta( get_the_ID(), 'text', true ); ?></p>
+								<a href="<?php echo get_post_meta( get_the_ID(), 'link', true ); ?>"><?php echo get_post_meta( get_the_ID(), 'linkText', true ); ?></a>
+							</div>	
 
-				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+                            <?php endwhile;
 
-			</article>
-			<!-- /article -->
+	endif;
+    wp_reset_postdata();
+?>
+</div>
+                    </div>
 
-		<?php endif; ?>
 
-		</section>
-		<!-- /section -->
-	</main>
+<!--advertisers end-->
 
-<?php get_sidebar(); ?>
 
-<?php get_footer(); ?>
+
+                </div>
+                <!-- #content -->
+            </div>
+            <!-- #primary -->
+    </div>
+    <!-- #main-content -->
+
+    <?php
+get_footer();

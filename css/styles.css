@@ -1,0 +1,60 @@
+:root{--textcolor:#1b232e;--color1:#ca9f16;--main-font:'Open Sans', sans-serif;}
+body{font-family:var(--main-font);color:var(--textcolor)}
+img{max-width:100%}
+.video iframe {
+    width: 100%;
+    height: 490px;
+}
+.number {
+    font-size: 100px;
+    color: var(--color1);
+}
+.numbers label {
+    font-size: 40px;
+}
+
+.numbers {
+    margin-top: -80px;
+    float: left;
+    width: 80%;
+    margin-left: 10%;
+}
+
+header.header {
+    padding-top: 30px;
+}
+
+header .header-btns {
+    float: right;
+}
+
+header .logo {
+    float: left;
+}
+
+header {
+    float: left;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.header-btns .login a {
+    color: var(--color1);
+}
+
+.header-btns>div {
+    float: left;
+    margin-left: 20px;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.header-btns .sign-up {
+    background: #3a4b63;
+    padding: 5px 21px;
+    border-radius: 5px;
+}
+
+.header-btns .sign-up a {
+    color: #fff;
+}
