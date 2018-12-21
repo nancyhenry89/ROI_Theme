@@ -56,14 +56,12 @@
 
 <!--advertisers start-->
 
-                    <div id="advertisers" class="container-fluid">
+                    <div  id="advertisers" class="container-fluid double-sec">
 						<div class="container">
                         <?php
     $loop = new WP_Query( array( 'post_type' => 'advertisers') );
     if ( $loop->have_posts() ) :
         while ( $loop->have_posts() ) : $loop->the_post(); ?>
-        			<?php the_content(); // Dynamic Content ?>
-
                             <div class="advImg">
                                 <img src="<?php echo get_post_meta( get_the_ID(), 'podcast_file', true ); ?>"/>
                             </div>
@@ -73,7 +71,7 @@
 								<div class="plus-icon">+</div>
 							</div>
 							<div class="adv-content">
-								<p>  <?php echo get_post_meta( get_the_ID(), 'text', true ); ?></p>
+								<p>  <?php the_content(); // Dynamic Content ?></p>
 								<a href="<?php echo get_post_meta( get_the_ID(), 'link', true ); ?>"><?php echo get_post_meta( get_the_ID(), 'linkText', true ); ?></a>
 							</div>	
 
@@ -87,6 +85,43 @@
 
 
 <!--advertisers end-->
+
+
+
+
+
+
+<!--affilates start-->
+
+                    <div id="advertisers" class="container-fluid double-sec">
+						<div class="container">
+                        <?php
+    $loop = new WP_Query( array( 'post_type' => 'affiliates') );
+    if ( $loop->have_posts() ) :
+        while ( $loop->have_posts() ) : $loop->the_post(); ?>
+                            <div class="advImg">
+                                <img src="<?php echo get_post_meta( get_the_ID(), 'podcast_file', true ); ?>"/>
+                            </div>
+							<div class="labels">
+								<label><?php echo get_post_meta( get_the_ID(), 'sectionLabel', true ); ?></label>
+								<h2 class="sec-title"><?php echo get_post_meta( get_the_ID(), 'sectionName', true ); ?></h2>
+								<div class="plus-icon">+</div>
+							</div>
+							<div class="adv-content">
+								<p>  <?php the_content(); // Dynamic Content ?></p>
+								<a href="<?php echo get_post_meta( get_the_ID(), 'link', true ); ?>"><?php echo get_post_meta( get_the_ID(), 'linkText', true ); ?></a>
+							</div>	
+
+                            <?php endwhile;
+
+	endif;
+    wp_reset_postdata();
+?>
+</div>
+                    </div>
+
+
+<!--affilates end-->
 
 
 

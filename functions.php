@@ -398,10 +398,6 @@ function main_custom_columns($column){
 //advertisers section
 add_action('init', 'advertisers_register');
 
-
-
-
-
 //Add Metabox
 
 //this is to enable media upload
@@ -411,15 +407,6 @@ function my_admin_load_styles_and_scripts() {
 }
 add_action( 'admin_enqueue_scripts', 'my_admin_load_styles_and_scripts' );
 ////////
-
-
-
-
-
-
-
-
-
 
 
 function advertisers_register() {
@@ -560,77 +547,17 @@ value = "" />
         file_frame.on('select', function(){
             // We set multiple to false so only get one image from the uploader
             attachment = file_frame.state().get('selection').first().toJSON();
-
-            // here are some of the variables you could use for the attachment;
-            //var all = JSON.stringify( attachment );      
-            //var id = attachment.id;
-            //var title = attachment.title;
-            //var filename = attachment.filename;
             var url = attachment.url;
-            //var link = attachment.link;
-            //var alt = attachment.alt;
-            //var author = attachment.author;
-            //var description = attachment.description;
-            //var caption = attachment.caption;
-            //var name = attachment.name;
-            //var status = attachment.status;
-            //var uploadedTo = attachment.uploadedTo;
-            //var date = attachment.date;
-            //var modified = attachment.modified;
-            //var type = attachment.type;
-            //var subtype = attachment.subtype;
-            //var icon = attachment.icon;
-            //var dateFormatted = attachment.dateFormatted;
-            //var editLink = attachment.editLink;
-            //var fileLength = attachment.fileLength;
-
-            var field = document.getElementById("podcast_file");
+  var field = document.getElementById("podcast_file");
 
             field.value = url; //set which variable you want the field to have
         });
-
-        // Finally, open the modal
         file_frame.open();
     });
 
     </script>
   <?php
 }
-
-
-//Saving the file
-/*function save_podcasts_meta($post_id, $post) {
-    // verify this came from the our screen and with proper authorization,
-    // because save_post can be triggered at other times
-    if (!wp_verify_nonce($_POST['podcastmeta_noncename'], plugin_basename(__FILE__))) {
-        return $post -> ID;
-    }
-    // Is the user allowed to edit the post?
-    if (!current_user_can('edit_post', $post -> ID))
-        return $post -> ID;
-    // We need to find and save the data
-    // We'll put it into an array to make it easier to loop though.
-    $podcasts_meta['podcast_file'] = $_POST['podcast_file'];
-    // Add values of $podcasts_meta as custom fields
-
-    foreach($podcasts_meta as $key => $value) {
-        if ($post -> post_type == 'revision') return;
-        $value = implode(',', (array) $value);
-        if (get_post_meta($post -> ID, $key, FALSE)) { // If the custom field already has a value it will update
-            update_post_meta($post -> ID, $key, $value);
-        } else { // If the custom field doesn't have a value it will add
-            add_post_meta($post -> ID, $key, $value);
-        }
-        if (!$value) delete_post_meta($post -> ID, $key); // Delete if blank value
-    }
-}*/
-//add_action('save_post', 'save_podcasts_meta', 1, 2); // save the custom fields
-
-
-
-
-
-
 
 
 add_action('save_post', 'save_details_advertisers','save_podcasts_meta');
@@ -679,7 +606,177 @@ function advertisers_custom_columns($column){
 
 
 
+//affiliates section
+add_action('init', 'affiliates_register');
 
+//Add Metabox
+
+
+
+
+function affiliates_register() {
+
+	$labels = array(
+		'name' => _x('affiliates', 'post type general name'),
+		'singular_name' => _x('affiliates Item', 'post type singular name'),
+		'add_new' => _x('Add New', 'main item'),
+		'add_new_item' => __('Add New main Item'),
+		'edit_item' => __('Edit main Item'),
+		'new_item' => __('New main Item'),
+		'view_item' => __('View main Item'),
+		'search_items' => __('Search main'),
+		'not_found' =>  __('Nothing found'),
+		'not_found_in_trash' => __('Nothing found in Trash'),
+		'parent_item_colon' => ''
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		'menu_icon' => get_stylesheet_directory_uri() . '/article16.png',
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => null,
+		'supports' => array('title','editor')
+	  ); 
+
+	register_post_type( 'affiliates' , $args );
+}	
+add_action("admin_init", "admin_init_affiliates");
+
+function admin_init_affiliates(){
+  add_meta_box("credits_meta_affiliates", "affiliates", "credits_meta_affiliates", "affiliates", "normal", "low");
+}
+
+
+
+
+
+function credits_meta_affiliates() {
+  global $post;
+  $custom = get_post_custom($post->ID);
+  $sectionName = $custom["sectionName"][0];
+  $sectionLabel = $custom["sectionLabel"][0];
+  $text = $custom["text"][0];
+  $linkText = $custom["linkText"][0];
+  $link = $custom["link"][0];
+  $podcast_file = $custom["podcast_file"][0];
+
+?>
+<p><label>Section Name</label><br />
+  <input type="text" name="sectionName" value=<?php echo $sectionName; ?>></p>
+  <p><label>Section Label</label><br />
+  <textarea type="text" name="sectionLabel"><?php echo $sectionLabel; ?></textarea></p>
+  <p><label>Text</label><br />
+  <textarea name="text"><?php echo $text; ?></textarea></p>
+  <p><label>Link text</label><br />
+  <textarea type="text" name="linkText"><?php echo $linkText; ?></textarea></p>
+  <p><label>Link</label><br />
+  <textarea type="text" name="link"><?php echo $link; ?></textarea></p>
+  <div>
+
+<table>
+<tr valign = "top">
+<td>
+<input type = "text"
+name = "podcast_file"
+id = "podcast_file"
+size = "70"
+value = "<?php echo $podcast_file; ?>" />
+<input id = "upload_image_button"
+type = "button"
+value = "Upload">
+</td> </tr> </table> <input type = "hidden"
+name = "img_txt_id"
+id = "img_txt_id"
+value = "" />
+</div>  
+<script type = "text/javascript">
+
+
+        // Uploading files
+        var file_frame;
+    jQuery('#upload_image_button').live('click', function(podcast) {
+        podcast.preventDefault();
+
+        // If the media frame already exists, reopen it.
+        if (file_frame) {
+            file_frame.open();
+            return;
+        }
+
+        // Create the media frame.
+        file_frame = wp.media.frames.file_frame = wp.media({
+            title: jQuery(this).data('uploader_title'),
+            button: {
+                text: jQuery(this).data('uploader_button_text'),
+            },
+            multiple: false // Set to true to allow multiple files to be selected
+        });
+
+        // When a file is selected, run a callback.
+        file_frame.on('select', function(){
+            // We set multiple to false so only get one image from the uploader
+            attachment = file_frame.state().get('selection').first().toJSON();
+            var url = attachment.url;
+  var field = document.getElementById("podcast_file");
+
+            field.value = url; //set which variable you want the field to have
+        });
+        file_frame.open();
+    });
+
+    </script>
+  <?php
+}
+
+
+add_action('save_post', 'save_details_affiliates','save_podcasts_meta');
+function save_details_affiliates(){
+	global $post;
+    update_post_meta($post->ID, "sectionName", $_POST["sectionName"]);
+	update_post_meta($post->ID, "sectionLabel", $_POST["sectionLabel"]);
+	update_post_meta($post->ID, "text", $_POST["text"]);
+    update_post_meta($post->ID, "linkText", $_POST["linkText"]);
+    update_post_meta($post->ID, "link", $_POST["link"]);
+    update_post_meta($post->ID, "podcast_file", $_POST["podcast_file"]);
+
+    
+
+}
+
+
+    add_action("manage_posts_custom_column",  "affiliates_custom_columns");
+    add_filter("manage_edit-affiliates_columns", "affiliates_edit_columns");
+
+function affiliates_edit_columns($columns){
+  $columns = array(
+    "cb" => "<input  />",
+    "title" => "affiliates Title",
+    "description" => "Description",
+
+
+  );
+
+  return $columns;
+}
+function affiliates_custom_columns($column){
+  global $post;
+  switch ($column) {
+    case "description":
+    echo $custom["text"][0];
+      break;
+
+  }
+
+}
+
+
+//affiliates end
 
 
 
