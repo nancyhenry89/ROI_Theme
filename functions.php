@@ -655,7 +655,6 @@ function admin_init_affiliates(){
 
 
 
-
 function credits_meta_affiliates() {
   global $post;
   $custom = get_post_custom($post->ID);
@@ -778,6 +777,443 @@ function affiliates_custom_columns($column){
 
 //affiliates end
 
+
+
+
+
+
+
+
+
+//aboutUS section
+add_action('init', 'aboutUS_register');
+
+//Add Metabox
+
+
+
+
+function aboutUS_register() {
+
+	$labels = array(
+		'name' => _x('About US', 'post type general name'),
+		'singular_name' => _x('aboutUS Item', 'post type singular name'),
+		'add_new' => _x('Add New', 'main item'),
+		'add_new_item' => __('Add New main Item'),
+		'edit_item' => __('Edit main Item'),
+		'new_item' => __('New main Item'),
+		'view_item' => __('View main Item'),
+		'search_items' => __('Search main'),
+		'not_found' =>  __('Nothing found'),
+		'not_found_in_trash' => __('Nothing found in Trash'),
+		'parent_item_colon' => ''
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		'menu_icon' => get_stylesheet_directory_uri() . '/article16.png',
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => null,
+		'supports' => array('title')
+	  ); 
+
+	register_post_type( 'aboutUS' , $args );
+}	
+add_action("admin_init", "admin_init_aboutUS");
+
+function admin_init_aboutUS(){
+  add_meta_box("credits_meta_aboutUS", "aboutUS", "credits_meta_aboutUS", "aboutUS", "normal", "low");
+}
+
+
+function credits_meta_aboutUS() {
+  global $post;
+  $custom = get_post_custom($post->ID);
+  $sectionName = $custom["sectionName"][0];
+
+  $btn1 = $custom["btn1"][0];
+  $btn2 = $custom["btn2"][0];
+  $btn3 = $custom["btn3"][0];
+
+
+  $podcast_file = $custom["podcast_file"][0];
+
+
+  $content = get_post_meta($post->ID, 'wo_blue_box' , true ) ;
+  wp_editor( htmlspecialchars_decode($content), 'wo_blue_box', array("media_buttons" => false) );
+
+
+  $content = get_post_meta($post->ID, 'about2_box' , true ) ;
+  wp_editor( htmlspecialchars_decode($content), 'about2_box', array("media_buttons" => false) );
+
+
+  $content = get_post_meta($post->ID, 'about3_box' , true ) ;
+  wp_editor( htmlspecialchars_decode($content), 'about3_box', array("media_buttons" => false) );
+?>
+<p><label>Section Name</label><br />
+  <input type="text" name="sectionName" value=<?php echo $sectionName; ?>></p>
+  <p><label>Button 1 text</label><br />
+  <textarea type="text" name="btn1"><?php echo $btn1; ?></textarea></p>
+  <p><label>Button 2 text</label><br />
+  <textarea name="btn2"><?php echo $btn2; ?></textarea></p>
+  <p><label>Button 3 text</label><br />
+  <textarea type="text" name="btn3"><?php echo $btn3; ?></textarea></p>
+
+  <div>
+
+<table>
+<tr valign = "top">
+<td>
+<input type = "text"
+name = "podcast_file"
+id = "podcast_file"
+size = "70"
+value = "<?php echo $podcast_file; ?>" />
+<input id = "upload_image_button"
+type = "button"
+value = "Upload">
+</td> </tr> </table> <input type = "hidden"
+name = "img_txt_id"
+id = "img_txt_id"
+value = "" />
+</div>  
+<script type = "text/javascript">
+
+
+        // Uploading files
+        var file_frame;
+    jQuery('#upload_image_button').live('click', function(podcast) {
+        podcast.preventDefault();
+
+        // If the media frame already exists, reopen it.
+        if (file_frame) {
+            file_frame.open();
+            return;
+        }
+
+        // Create the media frame.
+        file_frame = wp.media.frames.file_frame = wp.media({
+            title: jQuery(this).data('uploader_title'),
+            button: {
+                text: jQuery(this).data('uploader_button_text'),
+            },
+            multiple: false // Set to true to allow multiple files to be selected
+        });
+
+        // When a file is selected, run a callback.
+        file_frame.on('select', function(){
+            // We set multiple to false so only get one image from the uploader
+            attachment = file_frame.state().get('selection').first().toJSON();
+            var url = attachment.url;
+  var field = document.getElementById("podcast_file");
+
+            field.value = url; //set which variable you want the field to have
+        });
+        file_frame.open();
+    });
+
+    </script>
+  <?php
+}
+
+
+add_action('save_post', 'save_details_aboutUS','save_podcasts_meta','wo_save_postdata');
+function save_details_aboutUS(){
+	global $post;
+    update_post_meta($post->ID, "sectionName", $_POST["sectionName"]);
+	update_post_meta($post->ID, "btn1", $_POST["btn1"]);
+	update_post_meta($post->ID, "btn2", $_POST["btn2"]);
+    update_post_meta($post->ID, "btn3", $_POST["btn3"]);
+    update_post_meta($post->ID, "link", $_POST["link"]);
+    update_post_meta($post->ID, "podcast_file", $_POST["podcast_file"]);
+  
+
+        $data=htmlspecialchars($_POST['wo_blue_box']);
+        update_post_meta($post->ID, 'wo_blue_box', $data );
+        $data2=htmlspecialchars($_POST['about2_box']);
+        update_post_meta($post->ID, 'about2_box', $data2 );
+        $data3=htmlspecialchars($_POST['about3_box']);
+        update_post_meta($post->ID, 'about3_box', $data3 );
+    }
+
+
+    add_action("manage_posts_custom_column",  "aboutUS_custom_columns");
+    add_filter("manage_edit-aboutUS_columns", "aboutUS_edit_columns");
+
+function aboutUS_edit_columns($columns){
+  $columns = array(
+    "cb" => "<input  />",
+    "title" => "aboutUS Title",
+    "description" => "Description",
+
+
+  );
+
+  return $columns;
+}
+function aboutUS_custom_columns($column){
+  global $post;
+  switch ($column) {
+    case "description":
+    echo $custom["text"][0];
+      break;
+
+  }
+
+}
+
+
+//aboutUS end
+
+
+
+
+
+
+
+
+//services section
+add_action('init', 'services_register');
+
+//Add Metabox
+
+
+
+
+function services_register() {
+
+	$labels = array(
+		'name' => _x('Services', 'post type general name'),
+		'singular_name' => _x('services Item', 'post type singular name'),
+		'add_new' => _x('Add New', 'main item'),
+		'add_new_item' => __('Add New main Item'),
+		'edit_item' => __('Edit main Item'),
+		'new_item' => __('New main Item'),
+		'view_item' => __('View main Item'),
+		'search_items' => __('Search main'),
+		'not_found' =>  __('Nothing found'),
+		'not_found_in_trash' => __('Nothing found in Trash'),
+		'parent_item_colon' => ''
+	);
+
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'publicly_queryable' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		'menu_icon' => get_stylesheet_directory_uri() . '/article16.png',
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'menu_position' => null,
+		'supports' => array('title')
+	  ); 
+
+	register_post_type( 'services' , $args );
+}	
+add_action("admin_init", "admin_init_services");
+
+function admin_init_services(){
+  add_meta_box("credits_meta_services", "services", "credits_meta_services", "services", "normal", "low");
+}
+
+
+function credits_meta_services() {
+  global $post;
+  $custom = get_post_custom($post->ID);
+  $sectionName = $custom["sectionName"][0];
+  $sectionLabel = $custom["sectionLabel"][0];
+
+  $service1 = $custom["service1"][0];
+  $service2 = $custom["service2"][0];
+  $service3 = $custom["service3"][0];
+  $service4 = $custom["service4"][0];
+  $service5 = $custom["service5"][0];
+
+
+  $service1_icon = $custom["service1_icon"][0];
+  $service2_icon = $custom["service2_icon"][0];
+  $service3_icon = $custom["service3_icon"][0];
+  $service4_icon = $custom["service4_icon"][0];
+  $service5_icon = $custom["service5_icon"][0];
+  $content = get_post_meta($post->ID, 'services_text_box' , true ) ;
+  wp_editor( htmlspecialchars_decode($content), 'services_text_box', array("media_buttons" => false) );
+?>
+<p><label>Section Name</label><br />
+  <input type="text" name="sectionName" value=<?php echo $sectionName; ?>></p>
+  <p><label>Section Label</label><br />
+  <textarea type="text" name="sectionLabel"><?php echo $sectionLabel; ?></textarea></p>
+  <p><label>Service 1 text</label><br />
+  <textarea name="service1"><?php echo $service1; ?></textarea></p><br/>
+  <table>
+<tr valign = "top">
+<td>
+<input type = "text" name = "service1_icon" id = "podcast_file" size = "70" value = "<?php echo $service1_icon; ?>" />
+<input id = "upload_image_button" type = "button" value = "Upload">
+</td> </tr> </table> 
+<input type = "hidden" name = "img_txt_id" id = "img_txt_id" value = "" />
+
+
+
+
+
+  <p><label>Service 2 text</label><br />
+  <textarea type="service2" name="service2"><?php echo $service2; ?></textarea></p><br/>
+  <table>
+<tr valign = "top">
+<td>
+<input type = "text" name = "service2_icon" id = "podcast_file" size = "70" value = "<?php echo $service2_icon; ?>" />
+<input id = "upload_image_button" type = "button" value = "Upload">
+</td> </tr> </table> 
+<input type = "hidden" name = "img_txt_id" id = "img_txt_id" value = "" />
+
+
+
+
+  <p><label>Service 3 text</label><br />
+  <textarea type="service3" name="service3"><?php echo $service3; ?></textarea></p><br/>
+  <table>
+<tr valign = "top">
+<td>
+<input type = "text" name = "service3_icon" id = "service3_icon" size = "70" value = "<?php echo $service3_icon; ?>" />
+<input id = "upload_image_button" type = "button" value = "Upload">
+</td> </tr> </table> 
+<input type = "hidden" name = "img_txt_id" id = "img_txt_id" value = "" />
+
+
+  <p><label>Service 4 text</label><br />
+  <textarea type="service4" name="service4"><?php echo $service4; ?></textarea></p><br/>
+  <table>
+<tr valign = "top">
+<td>
+<input type = "text" name = "service4_icon" id = "service4_icon" size = "70" value = "<?php echo $service4_icon; ?>" />
+<input id = "upload_image_button" type = "button" value = "Upload">
+</td> </tr> </table> 
+<input type = "hidden" name = "img_txt_id" id = "img_txt_id" value = "" />
+
+
+
+  <p><label>Service 5 text</label><br />
+  <textarea type="service5" name="service5"><?php echo $service5; ?></textarea></p><br/>
+  <table>
+<tr valign = "top">
+<td>
+<input type = "text" name = "service5_icon" id = "service5_icon" size = "70" value = "<?php echo $service5_icon; ?>" />
+<input id = "upload_image_button" type = "button" value = "Upload">
+</td> </tr> </table> 
+<input type = "hidden" name = "img_txt_id" id = "img_txt_id" value = "" />
+  <div>
+
+
+
+
+
+
+
+</div>  
+<script type = "text/javascript">
+
+
+        // Uploading files
+        
+    jQuery('#upload_image_button').live('click', function(podcast) {
+        var file_frame;
+
+        podcast.preventDefault();
+        var btn=jQuery(this);
+        console.log(btn);
+        // If the media frame already exists, reopen it.
+        if (file_frame) {
+            file_frame.open();
+            return;
+        }
+        console.log('1',btn);
+
+        // Create the media frame.
+        file_frame = wp.media.frames.file_frame = wp.media({
+            title: jQuery(this).data('uploader_title'),
+            button: {
+                text: jQuery(this).data('uploader_button_text'),
+            },
+            multiple: false // Set to true to allow multiple files to be selected
+        });
+        console.log('2',btn);
+
+        // When a file is selected, run a callback.
+        file_frame.on('select', function(){
+            // We set multiple to false so only get one image from the uploader
+            attachment = file_frame.state().get('selection').first().toJSON();
+            var url = attachment.url;
+            var field= btn.prev()[0];
+            //var field = document.getElementById("podcast_file");
+            console.log('3',btn);
+
+            field.value = url; //set which variable you want the field to have
+        });
+        file_frame.open();
+    });
+
+    </script>
+  <?php
+}
+
+
+add_action('save_post', 'save_details_services','save_podcasts_meta','wo_save_postdata');
+function save_details_services(){
+	global $post;
+    update_post_meta($post->ID, "sectionName", $_POST["sectionName"]);
+	update_post_meta($post->ID, "sectionLabel", $_POST["sectionLabel"]);
+	update_post_meta($post->ID, "service1", $_POST["service1"]);
+    update_post_meta($post->ID, "service2", $_POST["service2"]);
+    update_post_meta($post->ID, "service3", $_POST["service3"]);
+    update_post_meta($post->ID, "service4", $_POST["service4"]);
+    update_post_meta($post->ID, "service5", $_POST["service5"]);
+    update_post_meta($post->ID, "service1_icon", $_POST["service1_icon"]);
+    update_post_meta($post->ID, "service2_icon", $_POST["service2_icon"]);
+    update_post_meta($post->ID, "service3_icon", $_POST["service3_icon"]);
+    update_post_meta($post->ID, "service4_icon", $_POST["service4_icon"]);
+    update_post_meta($post->ID, "service5_icon", $_POST["service5_icon"]);
+  
+
+        $data=htmlspecialchars($_POST['services_text_box']);
+        update_post_meta($post->ID, 'services_text_box', $data );
+    }
+
+
+    add_action("manage_posts_custom_column",  "services_custom_columns");
+    add_filter("manage_edit-services_columns", "services_edit_columns");
+
+function services_edit_columns($columns){
+  $columns = array(
+    "cb" => "<input  />",
+    "title" => "services Title",
+    "description" => "Description",
+
+
+  );
+
+  return $columns;
+}
+function services_custom_columns($column){
+  global $post;
+  switch ($column) {
+    case "description":
+    echo $custom["text"][0];
+      break;
+
+  }
+
+}
+
+
+//services end
 
 
 

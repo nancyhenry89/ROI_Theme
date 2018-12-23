@@ -122,7 +122,48 @@
 
 
 <!--affilates end-->
+<!--about us start-->
 
+                    <div id="about" class="container-fluid ">
+						<div class="container">
+                        <?php
+    $loop = new WP_Query( array( 'post_type' => 'affiliates') );
+    if ( $loop->have_posts() ) :
+        while ( $loop->have_posts() ) : $loop->the_post(); ?>
+        <div class="row">
+            <div class="col-md-6">
+            
+            </div>
+            <div class="col-md-6"></div>
+            </div>
+
+
+
+
+
+                            <div class="advImg">
+                                <img src="<?php echo get_post_meta( get_the_ID(), 'podcast_file', true ); ?>"/>
+                            </div>
+							<div class="labels">
+								<label><?php echo get_post_meta( get_the_ID(), 'sectionLabel', true ); ?></label>
+								<h2 class="sec-title"><?php echo get_post_meta( get_the_ID(), 'sectionName', true ); ?></h2>
+								<div class="plus-icon">+</div>
+							</div>
+							<div class="adv-content">
+								<p>  <?php the_content(); // Dynamic Content ?></p>
+								<a href="<?php echo get_post_meta( get_the_ID(), 'link', true ); ?>"><?php echo get_post_meta( get_the_ID(), 'linkText', true ); ?></a>
+							</div>	
+
+                            <?php endwhile;
+
+	endif;
+    wp_reset_postdata();
+?>
+</div>
+                    </div>
+
+
+<!--about us end-->
 
 
                 </div>
