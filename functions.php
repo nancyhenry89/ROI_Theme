@@ -845,8 +845,8 @@ function credits_meta_aboutUS() {
   $podcast_file = $custom["podcast_file"][0];
 
 
-  $content = get_post_meta($post->ID, 'wo_blue_box' , true ) ;
-  wp_editor( htmlspecialchars_decode($content), 'wo_blue_box', array("media_buttons" => false) );
+  $content = get_post_meta($post->ID, 'about1_box' , true ) ;
+  wp_editor( htmlspecialchars_decode($content), 'about1_box', array("media_buttons" => false) );
 
 
   $content = get_post_meta($post->ID, 'about2_box' , true ) ;
@@ -934,8 +934,8 @@ function save_details_aboutUS(){
     update_post_meta($post->ID, "podcast_file", $_POST["podcast_file"]);
   
 
-        $data=htmlspecialchars($_POST['wo_blue_box']);
-        update_post_meta($post->ID, 'wo_blue_box', $data );
+        $data=htmlspecialchars($_POST['about1_box']);
+        update_post_meta($post->ID, 'about1_box', $data );
         $data2=htmlspecialchars($_POST['about2_box']);
         update_post_meta($post->ID, 'about2_box', $data2 );
         $data3=htmlspecialchars($_POST['about3_box']);
@@ -1030,6 +1030,7 @@ function credits_meta_services() {
   $custom = get_post_custom($post->ID);
   $sectionName = $custom["sectionName"][0];
   $sectionLabel = $custom["sectionLabel"][0];
+  $services_bg = $custom["services_bg"][0];
 
   $service1 = $custom["service1"][0];
   $service2 = $custom["service2"][0];
@@ -1050,6 +1051,16 @@ function credits_meta_services() {
   <input type="text" name="sectionName" value=<?php echo $sectionName; ?>></p>
   <p><label>Section Label</label><br />
   <textarea type="text" name="sectionLabel"><?php echo $sectionLabel; ?></textarea></p>
+  <p><label>Services background</label><br />
+  <table>
+<tr valign = "top">
+<td>
+<input type = "text" name = "services_bg" id = "podcast_file" size = "70" value = "<?php echo $services_bg; ?>" />
+<input id = "upload_image_button" type = "button" value = "Upload">
+</td> </tr> </table> 
+<input type = "hidden" name = "img_txt_id" id = "img_txt_id" value = "" />
+
+
   <p><label>Service 1 text</label><br />
   <textarea name="service1"><?php echo $service1; ?></textarea></p><br/>
   <table>
@@ -1180,6 +1191,9 @@ function save_details_services(){
     update_post_meta($post->ID, "service3_icon", $_POST["service3_icon"]);
     update_post_meta($post->ID, "service4_icon", $_POST["service4_icon"]);
     update_post_meta($post->ID, "service5_icon", $_POST["service5_icon"]);
+    update_post_meta($post->ID, "services_bg", $_POST["services_bg"]);
+
+    
   
 
         $data=htmlspecialchars($_POST['services_text_box']);
