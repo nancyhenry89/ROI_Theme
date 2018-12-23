@@ -1,10 +1,13 @@
 (function ($, root, undefined) {
 	
 	$(function () {
-		
 		'use strict';
 		
-		// DOM ready, take it away
+		$('.plus-icon').hover(function(){
+			var data=$(this).attr('data');
+			$('[data-open="'+data+'"]').addClass('data-show');
+			$(this).parents('.sec').addClass('data-visible');
+		});
 		
 	});
 	
