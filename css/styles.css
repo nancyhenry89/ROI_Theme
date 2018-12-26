@@ -32,6 +32,9 @@ header.header {
     padding-top: 18px;
     padding-left: 55px;
     padding-right: 55px;
+    position: fixed;
+    background: #fff;
+    z-index: 99;
 }
 
 header .header-btns {
@@ -46,7 +49,7 @@ header .logo {
 header {
     float: left;
     width: 100%;
-    margin-bottom: 50px;
+    padding-bottom: 20px;
 }
 
 .header-btns .login a {
@@ -447,4 +450,16 @@ footer.footer a {
     opacity: 1;
     transform: rotate(0deg);
     z-index: 999;
+}
+div#main-content {
+    padding-top: 90px;
+}
+
+div#services {
+    position: relative;
+}
+.about-arrows .prev div {
+    transform: rotate(180deg);
+    padding-right: 0;
+    margin-top: 16px;
 }

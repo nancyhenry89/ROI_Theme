@@ -184,7 +184,7 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 										<div><img src="<?php echo get_template_directory_uri(); ?>/img/arrow.png"/></div>
 										
 									</div>
-									<div class="next">
+									<div class="next" data="1">
 									<span>NEXT</span>
 									<div><img src="<?php echo get_template_directory_uri(); ?>/img/arrow.png"/></div>
 										
