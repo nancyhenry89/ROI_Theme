@@ -3,10 +3,17 @@
 	$(function () {
 		'use strict';
 		
-		$('.plus-icon').hover(function(){
+		$('.plus-icon').click(function(){
+			$(this).hide();
 			var data=$(this).attr('data');
 			$('[data-open="'+data+'"]').addClass('data-show');
 			$(this).parents('.sec').addClass('data-visible');
+		});
+		$('.close-icon').click(function(){
+			
+			$(this).parents('.adv-content').removeClass('data-show');
+			$(this).parents('.sec').removeClass('data-visible');
+			$(this).parents('.sec').find('.plus-icon').show();
 		});
 		//number counter desktop
 		$('.number').each(function () {
@@ -24,7 +31,7 @@
 
 
 
-		var advtop= $('#advertisers .plus-icon').offset().top;
+/*		var advtop= $('#advertisers .plus-icon').offset().top;
 		var advleft= $('#advertisers .plus-icon').offset().left;
 $('#advertisers  .labels').on('mousemove', function(e){
 
@@ -62,6 +69,7 @@ $('#affiliates  .labels').on('mouseleave', function(e){
 $('[data-open="affiliates"]').removeClass('data-show');
 $(this).parents('.sec').removeClass('data-visible');
 });
+*/
 	});
 	
 

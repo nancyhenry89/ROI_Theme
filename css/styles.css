@@ -86,6 +86,7 @@ header {
 .double-sec {
     height: 488px;
     position: relative;
+    transition: all .5s ease;
 }
 
 .double-sec h2.sec-title {
@@ -118,6 +119,7 @@ header {
     margin-top: 5px;
     font-weight: bold;
     transition: all .5s ease;
+    cursor: pointer;
 }
 
 .double-sec .plus-icon {
@@ -157,6 +159,7 @@ div#mainSec {
     position: absolute;
     left: calc(563px + 28px);
     bottom: 160px;
+    transition: all .5s ease;
 }
 
 .adv-content a {
@@ -383,7 +386,7 @@ footer.footer a {
     -moz-animation:spin 4s linear infinite;
     /* animation:spin 4s linear infinite; */
     /* border-radius: 50%; */
-    opacity: 0;
+    /* opacity: 0; */
 }
 .desktop-nav ul {
     list-style: none;
@@ -462,4 +465,18 @@ div#services {
     transform: rotate(180deg);
     padding-right: 0;
     margin-top: 16px;
+}
+.data-visible .plus-icon {
+    display: none;
+}
+.close-icon {
+    color: #fff;
+    font-size: 21px;
+    font-weight: 300;
+    border: 3px solid;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 21px;
+    cursor: pointer;
 }

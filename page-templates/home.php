@@ -73,6 +73,7 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 							<div class="plus-icon" data="advertisers">+</div>
 						</div>
 						<div class="adv-content" data-open="advertisers">
+							<div class="close-icon" data="advertisers">x</div>
 							<p>
 								<?php the_content(); // Dynamic Content ?>
 							</p>
@@ -111,6 +112,7 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 							<div class="plus-icon" data="affiliates">+</div>
 						</div>
 						<div class="adv-content" data-open="affiliates">
+						<div class="close-icon" data="advertisers">x</div>
 							<p>
 								<?php the_content(); // Dynamic Content ?>
 							</p>
@@ -208,8 +210,8 @@ wp_reset_postdata();
 
 			<!--about us end-->
 			<!--Services start-->
-
-			<div id="services" class="container-fluid ">
+ 
+			<div id="services" class="container-fluid sec">
 			  
 					<?php
 $loop = new WP_Query( array( 'post_type' => 'services') );
@@ -230,6 +232,7 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 								<div class="plus-icon" data="services">+</div>
 							</div>
 							<div class="adv-content" data-open="services">
+							<div class="close-icon" data="advertisers">x</div>
 								<p>
 								<?php
 											$content = get_post_meta(get_the_ID(), 'services_text_box' , true );
