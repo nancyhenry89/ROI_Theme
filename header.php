@@ -48,6 +48,17 @@
 						<div class="sign-up"><a href="#">Sign Up</a></div>
 					</div>
 					<!-- nav -->
+					<div class="desktop-nav">
+						<div class="open">	<img src="<?php echo get_template_directory_uri(); ?>/img/open.png" ></div>
+						<div class="close">	<img src="<?php echo get_template_directory_uri(); ?>/img/close.png" ></div>
+						<ul>
+							<li><a href="#advertisers">Advertisers</a></li>
+							<li><a href="#affiliates">Affiliates</a></li>
+							<li><a href="#about">About</a></li>
+							<li><a href="#services">Services</a></li>
+							<li><a href="#contact">Contact</a></li>
+						</ul>
+					</div>
 					<!--<nav class="nav" role="navigation">
 						<?php //html5blank_nav(); ?>
 					</nav>-->

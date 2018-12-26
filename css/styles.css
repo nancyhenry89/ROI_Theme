@@ -82,6 +82,7 @@ header {
 
 .double-sec {
     height: 488px;
+    position: relative;
 }
 
 .double-sec h2.sec-title {
@@ -142,10 +143,17 @@ div#mainSec {
 }
 .data-show {
     opacity: 1;
+    transform: translateY(40px) translateZ(0);
+    transition:transform 1s cubic-bezier(.23,1,.32,1),opacity .2s;
 }
 .adv-content {
-    padding-top: 80px;
+    padding-top: 40px;
     font-size: 14px;
+    float: left;
+    width: 700px;
+    position: absolute;
+    left: calc(563px + 28px);
+    bottom: 160px;
 }
 
 .adv-content a {
@@ -367,9 +375,76 @@ footer.footer a {
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 .double-sec .plus-icon:hover {
-    border-left: 3px solid rgba(209, 158, 0, 0.43);
-    -webkit-animation:spin 4s linear infinite;
+    /* border-left: 3px solid rgba(209, 158, 0, 0.43); */
+    /* -webkit-animation:spin 4s linear infinite; */
     -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-    border-radius: 50%;
+    /* animation:spin 4s linear infinite; */
+    /* border-radius: 50%; */
+    opacity: 0;
+}
+.desktop-nav ul {
+    list-style: none;
+    position: absolute;
+    top: -50%;
+    padding-left: 80px;
+    opacity: 0;
+    transition: all .5s ease;
+    left: -30px;
+}
+
+.desktop-nav li {
+    height: 40px;
+}
+
+.desktop-nav li a {
+    color: #1b232e;
+    font-size: 15px;
+    transition: all .5s ease;
+}
+
+.desktop-nav {
+    position: fixed;
+    top: 50%;
+    height: 105px;
+    width: 50px;
+    z-index: 999;
+}
+
+.desktop-nav .close {
+    opacity: 0;
+    width: 69px;
+    transition: transform .5s ease;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.desktop-nav li a:hover {
+    color: var(--color1);
+    text-decoration: none;
+}
+.desktop-nav .open {
+    position: absolute;
+    z-index: 999;
+    cursor: pointer;
+    /* transform: rotate(45deg); */
+    transition: transform .5s ease;
+    left: 0;
+    top: 0;
+}
+.desktop-nav.open-nav ul {
+    opacity: 1;
+    left: 0;
+}
+
+.desktop-nav.open-nav .open {
+    opacity: 0;
+    transform: rotate(45deg);
+}
+
+.desktop-nav.open-nav .close {
+    opacity: 1;
+    transform: rotate(0deg);
+    z-index: 999;
 }
