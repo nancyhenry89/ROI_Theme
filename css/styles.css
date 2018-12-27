@@ -510,6 +510,9 @@ div#services {
     display: none;
 }
 @media screen and (max-width: 768px){
+    .numbers>div.number-turn {
+        opacity: 1;
+    }
     .mobile-nav-footer {
     padding-left: 20px;
     background: url(../img/mobileNav.png);
@@ -540,7 +543,7 @@ div#services {
 }
 .mobile-nav .open{cursor:pointer;transition:transform .5s ease;z-index: 999;position: relative;}
 .mobile-nav .close{opacity:0;transition:transform .5s ease;transform:rotate(-45deg);position:absolute;top: 20px;width: 50px;}
-.mobile-nav ul{list-style:none;position:absolute;transition:all .5s ease;right:0;background:#fff;height: 0;width:100vw;opacity: 0;padding-top: 20px;font-size: 30px;padding-left: 0;}
+.mobile-nav ul{list-style:none;position:absolute;transition:all .5s ease;right:0;background:#fff;height: 0;width:100vw;opacity: 0;padding-top: 20px;font-size: 30px;padding-left: 0;overflow: hidden;}
 
 .mobile-nav ul li {
     padding-left: 20px;
@@ -665,10 +668,11 @@ header.header {
 .numbers>div {
     position: absolute;
     opacity: 0;
+    transition: all .5s ease;
 }
 
 .numbers>div:first-of-type {
-    opacity: 1;
+    /* opacity: 1; */
 }
 .open-nav.mobile-nav ul {
     opacity: 1;

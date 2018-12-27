@@ -1,5 +1,6 @@
 (function ($, root, undefined) {
-	
+	var isMobile = window.matchMedia("only screen and (max-width: 768px)");
+
 	$(function () {
 		'use strict';
 
@@ -15,6 +16,8 @@
 			$(this).parents('.sec').removeClass('data-visible');
 			$(this).parents('.sec').find('.plus-icon').show();
 		});
+
+		if (!isMobile.matches) {
 		//number counter desktop
 		$('.number').each(function () {
 			$(this).prop('Counter',0).animate({
@@ -27,9 +30,22 @@
 				}
 			});
 		});
+	}else{
+
+//number counter mobile
+var i=1;
+setInterval(function(){
+
+$('.numbers>div').removeClass('number-turn');
+$('.numbers>div:nth-of-type('+i+')').addClass('number-turn');
+i++
+if(i==4){
+i=1;
+}
 
 
-
+}, 1000);
+	}
 
 /*		var advtop= $('#advertisers .plus-icon').offset().top;
 		var advleft= $('#advertisers .plus-icon').offset().left;
