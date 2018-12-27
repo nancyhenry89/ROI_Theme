@@ -20,10 +20,11 @@
 		<script>
         // conditionizr.com
         // configure environment tests
-        conditionizr.config({
+     /*   conditionizr.config({
             assets: '<?php echo get_template_directory_uri(); ?>',
             tests: {}
-        });
+		});
+		*/
         </script>
 
 	</head>
@@ -61,6 +62,28 @@
 					<a href="marketing@roi.boutique" target="_top">marketing@roi.boutique</a>
 
 					</div>
+						</ul>
+
+					</div>
+					<div class="mobile-nav">
+						<div class="open">	<img src="<?php echo get_template_directory_uri(); ?>/img/open.png" ></div>
+						<div class="close">	<img src="<?php echo get_template_directory_uri(); ?>/img/close.png" ></div>
+						<ul>
+							<li class="login-nav"><a href="#">Login</a></li>
+							<li><a href="#advertisers">Advertisers</a></li>
+							<li><a href="#affiliates">Affiliates</a></li>
+							<li><a href="#about">About</a></li>
+							<li><a href="#services">Services</a></li>
+							<li><a href="#contact">Contact</a></li>
+							<div class="mobile-nav-footer">
+								<div>
+										<p>Don’t waste you time, </p>
+										<p>Sign up and join our teams </p>
+								</div>
+								<button class="btn">Start Earning Now!</button>
+								<p>Ask us anything </p>
+								<a href="marketing@roi.boutique" target="_top">marketing@roi.boutique</a>
+							</div>
 						</ul>
 
 					</div>

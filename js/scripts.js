@@ -84,6 +84,7 @@ $('a[href*="#"]')
   .click(function(event) {
 	  $('a').removeClass('current-sec');
 	  $(this).addClass('current-sec');
+	  $('.mobile-nav').removeClass('open-nav');
     // On-page links
     if (
       location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
@@ -118,8 +119,6 @@ $('a[href*="#"]')
   $('.desktop-nav .open').click(function(){
 	$(this).parents('.desktop-nav').addClass('open-nav');
 	
-	
-	
 	});
 
 
@@ -127,6 +126,19 @@ $('a[href*="#"]')
   $('.desktop-nav .close').click(function(){
 	$(this).parents('.desktop-nav').removeClass('open-nav');
 	});
+
+
+
+	$('.mobile-nav .open').click(function(){
+		$(this).parents('.mobile-nav').addClass('open-nav');
+		
+		});
+	
+	
+	
+	  $('.mobile-nav .close').click(function(){
+		$(this).parents('.mobile-nav').removeClass('open-nav');
+		});
 
 
 
