@@ -2,7 +2,7 @@
 	
 	$(function () {
 		'use strict';
-		
+
 		$('.plus-icon').click(function(){
 			$(this).hide();
 			var data=$(this).attr('data');
@@ -82,6 +82,8 @@ $('a[href*="#"]')
   .not('[href="#"]')
   .not('[href="#0"]')
   .click(function(event) {
+	  $('a').removeClass('current-sec');
+	  $(this).addClass('current-sec');
     // On-page links
     if (
       location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 

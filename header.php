@@ -57,7 +57,12 @@
 							<li><a href="#about">About</a></li>
 							<li><a href="#services">Services</a></li>
 							<li><a href="#contact">Contact</a></li>
+							<div class="nav-footer">
+					<a href="marketing@roi.boutique" target="_top">marketing@roi.boutique</a>
+
+					</div>
 						</ul>
+
 					</div>
 					<!--<nav class="nav" role="navigation">
 						<?php //html5blank_nav(); ?>
