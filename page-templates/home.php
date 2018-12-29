@@ -44,6 +44,7 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 							<label>EPC</label>
 						</div>
 					</div>
+					<button class="mobile btn btn-primary main-btn">Lets Get Started</button>
 					<?php endwhile;
 
 endif;

@@ -44,6 +44,8 @@ header .header-btns {
 header .logo {
     float: left;
     width: 111px;
+    position: relative;
+    z-index: 9999;
 }
 
 header {
@@ -191,6 +193,10 @@ button.btn.btn-primary {
     background: #3a4b63;
     border: 0;
 }
+
+.mobile {
+    display: none;
+}
 .about-arrows {
     margin-top: 74px;
     font-size: 20px;
@@ -333,7 +339,7 @@ button.btn.btn-secondary {
 }
 
 #contact button.btn.btn-secondary {
-    margin-top: 102px;
+    margin-top: 102px!important;
 }
 footer.footer {
     background: #1b232e;
@@ -343,7 +349,7 @@ footer.footer {
     text-align: center;
     color: #fff;
 }
-
+ 
 footer.footer a {
     color: #fff;
 }
@@ -392,7 +398,7 @@ footer.footer a {
 .desktop-nav ul {
     list-style: none;
     position: absolute;
-    top: -41%;
+    top: -40%;
     /* padding-left: 160px; */
     opacity: 0;
     transition: all .5s ease;
@@ -402,6 +408,7 @@ footer.footer a {
     /* padding-right: 100px; */
     height: 100vh;
     padding-top: 29vh;
+    box-shadow: 1px 19px 48px 1px #888888;
 }
 
 .desktop-nav li {
@@ -421,7 +428,7 @@ footer.footer a {
 
 .desktop-nav {
     position: fixed;
-    top: 50%;
+    top: 40%;
     height: 100%;
     width: 50px;
     z-index: 999;
@@ -509,7 +516,33 @@ div#services {
 .mobile-nav {
     display: none;
 }
-@media screen and (max-width: 768px){
+@media screen and (max-width: 992px){
+    div#contact {
+    margin-top: 0;
+}
+
+#contact button.btn.btn-primary {
+    margin-top: 30px;
+    width: 100%;
+}
+
+#contact button.btn.btn-secondary {
+    margin-top: 20px!important;
+    width: 100%;
+}
+    .servicesImg img {
+    max-width: fit-content;
+    transform: translateX(-300px);
+    width: 1037px;
+}
+
+.servicesImg {
+    overflow: hidden;
+}
+
+div#services {
+    height: 570px;
+}
     .numbers>div.number-turn {
         opacity: 1;
     }
@@ -550,8 +583,19 @@ div#services {
 }
 .mobile-nav ul a{color:#1b232e;font-size: 29px;transition:all .5s ease;line-height: 63px;}
     .adv-content {
-    width: 100%;
-    left: 0;
+    width: 100%!important;
+    left: 0!important;
+    height: 0;
+    overflow: hidden;
+    z-index: 9;
+}
+
+.data-show {
+    top: 50px;
+    height: 100%;
+    padding: 10px;
+    background: #303b45;
+    position: fixed;
 }
 div#mainSec {
     padding-left: 0;
@@ -559,6 +603,7 @@ div#mainSec {
     margin-left: 0;
     margin-right: 0;
     width: 100%;
+    padding-bottom: 40px;
 }
 
 .video>div {
@@ -570,7 +615,8 @@ div#mainSec {
 }
 
 #services .labels {
-    padding-top: 50px;
+    padding-top: 280px;
+    padding-left: 10px;
 }
 
 #services .row {
@@ -588,6 +634,7 @@ div#mainSec {
 #contact .slogan {
     text-align: left;
     font-size: 27px;
+    margin-bottom: 0;
 }
 
 .join, .support {
@@ -634,7 +681,7 @@ header.header {
     display: none;
 }
 .services-icons {
-    padding-top: 100px;
+    padding-top: 20px;
     width: 100%;
 }
 
@@ -651,14 +698,19 @@ header.header {
     width: auto;
 }
 
+.double-sec .container .labels {
+    padding-top: 213px;
+    padding-left: 10px;
+}
+
 .advImg img {
     width: auto;
-    max-width: max-content;
-    transform: translateX(-40%);
+    max-width: fit-content;
+    transform: translateX(-28%);
 }
 
 .double-sec {
-    height: 685px;
+    height: 350px;
     overflow: hidden;
 }
 
@@ -684,6 +736,18 @@ li.login-nav a {
 }
 .video {
     margin-top: 0;
+}
+
+.mobile {
+    display: block;
+}
+
+button.mobile.btn.btn-primary.main-btn {
+    margin-top: 130px;
+    left: 50%;
+    position: relative;
+    margin-left: -115px;
+    display: inline-block;
 }
 .mobile-nav {
     display: block;
