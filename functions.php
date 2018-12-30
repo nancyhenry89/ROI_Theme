@@ -342,14 +342,60 @@ function credits_meta() {
   $epc = $custom["epc"][0];
   $vidLink = $custom["vidLink"][0];
   ?>
+
     <p><label>video Link</label><br />
-  <input type="text" name="vidLink" value=<?php echo $vidLink; ?>></p>
+    <table>
+<tr valign = "top">
+<td>
+<input type = "text" name = "vidLink" id = "podcast_file" size = "70" value = "<?php echo $vidLink; ?>" />
+<input id = "upload_image_button" type = "button" value = "Upload">
+</td> </tr> </table> 
+<input type = "hidden" name = "img_txt_id" id = "img_txt_id" value = "" />
+
+
   <p><label>Roi</label><br />
   <input type="number" name="roi" value=<?php echo $roi; ?>></p>
   <p><label>Countries</label><br />
   <textarea name="countries"><?php echo $countries; ?></textarea></p>
   <p><label>EPC</label><br />
   <textarea name="epc"><?php echo $epc; ?></textarea></p>
+
+  <script type = "text/javascript">
+
+
+// Uploading files
+var file_frame;
+jQuery('#upload_image_button').live('click', function(podcast) {
+podcast.preventDefault();
+
+// If the media frame already exists, reopen it.
+if (file_frame) {
+    file_frame.open();
+    return;
+}
+
+// Create the media frame.
+file_frame = wp.media.frames.file_frame = wp.media({
+    title: jQuery(this).data('uploader_title'),
+    button: {
+        text: jQuery(this).data('uploader_button_text'),
+    },
+    multiple: false // Set to true to allow multiple files to be selected
+});
+
+// When a file is selected, run a callback.
+file_frame.on('select', function(){
+    // We set multiple to false so only get one image from the uploader
+    attachment = file_frame.state().get('selection').first().toJSON();
+    var url = attachment.url;
+var field = document.getElementById("podcast_file");
+
+    field.value = url; //set which variable you want the field to have
+});
+file_frame.open();
+});
+
+</script>
   <?php
 }
 add_action('save_post', 'save_details');

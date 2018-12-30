@@ -219,15 +219,24 @@ button.btn.btn-primary {
     font-size: 32px;
 }
 .about-arrows div {
-    font-size: 116px;
-    line-height: 17px;
+    font-size: 16px;
+    line-height: 9px;
     cursor: pointer;
     padding-right: 25px;
 }
 
-.next span {
+.about-arrows div.prev {
+    margin-top: 12px;
+}
+
+.next span,.prev span {
     font-size: 23px;
     display: block;
+    line-height: 25px;
+}
+
+.prev span {
+    line-height: 0px;
 }
 
 .next span {
@@ -285,6 +294,8 @@ button.btn.btn-primary {
 
 #services .plus-icon {
     float: left;
+    z-index: 999;
+    position: relative;
 }
 
 .services-icons {
@@ -513,7 +524,7 @@ div#services {
 .about-arrows .prev div {
     transform: rotate(180deg);
     padding-right: 0;
-    margin-top: 16px;
+    margin-top: 15px;
 }
 .data-visible .plus-icon {
     display: none;
@@ -887,5 +898,8 @@ button.btn.btn-secondary {
 
 #contact button.btn.btn-secondary {
     margin-top: 130px!important;
+}
+.adv-content {
+    bottom: 145px;
 }
 }
