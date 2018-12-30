@@ -24,7 +24,7 @@ img{max-width:100%}
 .numbers {
     margin-top: -57px;
     float: left;
-    width: 100%;
+    width: 90%;
     margin-left: 10%;
 }
 
@@ -521,6 +521,7 @@ footer.footer a {
 }
 div#main-content {
     padding-top: 90px;
+    overflow: hidden;
 }
 
 div#services {
@@ -612,6 +613,7 @@ button:focus {
     outline: none;
 }
 @media screen and (max-width: 992px){
+    .video iframe{height: 55vw;}
     div#contact {
     margin-top: 0;
 }
@@ -636,7 +638,7 @@ button:focus {
 }
     .servicesImg img {
     max-width: fit-content;
-    transform: translateX(-300px);
+    transform: translateX(-80px);
     width: 1037px;
 }
 
@@ -866,6 +868,11 @@ button.mobile.btn.btn-primary.main-btn {
     background: transparent;
     border: 3px solid;
     margin: 20px 0;
+}
+}
+@media screen and (max-width: 768px){
+    .servicesImg img{
+    transform: translateX(-320px);
 }
 }
 @media screen and (min-width: 1400px){
