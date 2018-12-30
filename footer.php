@@ -6,7 +6,13 @@
 					<a href="#" title="Roi.Boutique">© 2018 Roi.Boutique</a>.
 				</p>
 				<!-- /copyright -->
-
+				<div class="footer-nav">
+					<ul>
+						<li><a href="#">Login</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+						<li><a href="#">Terms of use</a></li>
+					</ul>
+				</div>
 			</footer>
 			<!-- /footer -->
 
