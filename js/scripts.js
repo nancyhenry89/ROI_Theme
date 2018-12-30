@@ -204,6 +204,14 @@ $('.next').fadeIn();
 });
 
 
+//contactform open
+$('#contactForm').click(function(){
+	$('.contact-form').fadeIn();
+});
+$('.contact-form .close').click(function(){
+	$('.contact-form').fadeOut();
+
+});
 $(window).resize(function(){
 
 
