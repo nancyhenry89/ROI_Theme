@@ -39,7 +39,7 @@ button.btn.btn-primary{width:230px;border-radius:8px;height:42px;margin-top:44px
 .prev{float:left}
 .next{float:right}
 .about-arrows i{display:block;font-size:32px}
-.about-arrows div{font-size:16px;line-height:9px;cursor:pointer;padding-right:25px}
+.about-arrows div{font-size:16px;line-height: 39px;cursor:pointer;padding-right:25px;}
 .about-arrows div.prev{margin-top:12px}
 .next span,.prev span{font-size:23px;display:block;line-height:25px}
 .prev span{line-height:0}
@@ -111,6 +111,9 @@ div#services{position:relative;height:846px}
 button:focus{outline:none}
 .servicesImg img{height: 846px;min-width: 100%;}
 @media screen and (max-width: 992px) {
+    .next span{padding-right:0}
+    .about-arrows div{padding-right:0
+    }
 .video iframe{height:55vw}
 div#contact{margin-top:0}
 .contact-form{top:-58px;height:360px;left:0;padding-left:10%}
