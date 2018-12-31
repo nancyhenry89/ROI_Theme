@@ -319,7 +319,7 @@ wp_reset_postdata();
 								<h6>Get Support</h6>
 									<p>Curious how we can help? 
 we’re always happy to communicate and answer your questions</p>
-									<button class="btn btn-secondary" id="contactForm">Get in touch</button>
+									<button class="btn btn-secondary" id="contactForm"><img class="mobile" src="<?php echo get_template_directory_uri(); ?>/img/contact.png"/>Get in touch</button>
 									<div class="contact-form">
 										<div class="close">x</div>
 										<input type="text" name="Name" placeholder="Name"/>
