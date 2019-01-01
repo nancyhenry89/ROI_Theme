@@ -111,6 +111,7 @@ div#services{position:relative;height:846px}
 button:focus{outline:none}
 .servicesImg img{height: 846px;min-width: 100%;}
 @media screen and (max-width: 992px) {
+.about_sec{font-size:16px}
     header.header{position:fixed;box-shadow: 1px -1px 28px 1px #888;}
     .about_sec button.btn.btn-primary {
     width: 100%;
@@ -147,7 +148,7 @@ div#services{height:570px}
 .mobile-nav ul{list-style:none;position:absolute;transition:all .5s ease;right:0;background:#fff;height:0;width:100vw;opacity:0;padding-top:20px;font-size:30px;padding-left:0;overflow:hidden}
 .mobile-nav ul li{padding-left:20px}
 .mobile-nav ul a{color:#1b232e;font-size:29px;transition:all .5s ease;line-height:63px}
-.adv-content{width:100%!important;left:0!important;height:0;overflow:hidden;z-index:9}
+.adv-content{width:100%!important;left:0!important;height:0;overflow:hidden;z-index:9;font-size: 16px;}
 .data-show{top:50px;height:100%;padding:10px;background:#303b45;position:fixed}
 div#mainSec{padding-left:0;padding-right:0;margin-left:0;margin-right:0;width:100%;padding-bottom:40px}
 .video>div{padding:0}
@@ -168,7 +169,7 @@ header .logo {
 }
 .service-img{opacity:1}
 .serviceSquare{display:none}
-.service label{opacity:1}
+.service label{opacity:1;font-size: 16px;}
 .numbers{margin-left:0}
 .services-icons{padding-top:100px;width:100%}
 .service{width:calc(100% / 3)}
