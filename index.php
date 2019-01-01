@@ -23,7 +23,7 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 						</div>
 					</div>
 					<div class="numbers">
-						<div class="col-md-4">
+						<div class="col-md-4 number-turn">
 							<div class="number">
 								<?php echo get_post_meta( get_the_ID(), 'roi', true ); ?>
 							</div>

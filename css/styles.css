@@ -111,7 +111,7 @@ div#services{position:relative;height:846px}
 button:focus{outline:none}
 .servicesImg img{height: 846px;min-width: 100%;}
 @media screen and (max-width: 992px) {
-    header.header{position:fixed}
+    header.header{position:fixed;box-shadow: 1px -1px 28px 1px #888;}
     .about_sec button.btn.btn-primary {
     width: 100%;
     height: 50px;
@@ -161,7 +161,11 @@ div#mainSec{padding-left:0;padding-right:0;margin-left:0;margin-right:0;width:10
 .join,.support{padding-left:0}
 .join h6,.support h6{display:none}
 .join p,.support p{display:none}
-header.header{max-width:100%;padding:20px}
+header.header{max-width:100%;padding: 15.5px 20px;}
+
+header .logo {
+    width: 100px;
+}
 .service-img{opacity:1}
 .serviceSquare{display:none}
 .service label{opacity:1}
