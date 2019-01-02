@@ -29,7 +29,7 @@ div#mainSec{padding-bottom:115px}
 .data-show{opacity:1;transform:translateY(40px) translateZ(0);transition:transform 1s cubic-bezier(.23,1,.32,1),opacity .2s}
 .adv-content{padding-top:40px;font-size:14px;float:left;width:700px;position:absolute;left:calc(563px + 28px);bottom:160px;transition:all .5s ease;max-width:100%}
 #services .adv-content{bottom:418px}
-.adv-content a{color:#ca9f19;font-size:20px;text-transform:uppercase;padding-bottom:4px;border-bottom:1px solid}
+.adv-content a{color:#ca9f19;font-size:20px;text-transform:uppercase;padding-bottom:4px;border-bottom:1px solid;text-decoration: none;}
 .sec.data-visible{background:rgba(32,40,50,.8)}
 div#about{padding-top:83px!important}
 #about h2.sec-title{color:var(--color1);text-transform:uppercase;font-size:36px;margin-bottom:23px;margin-top: 24px;}
@@ -39,11 +39,11 @@ button.btn.btn-primary{width:230px;border-radius:8px;height:42px;margin-top: 54p
 .prev{float:left}
 .next{float:right}
 .about-arrows i{display:block;font-size:32px}
-.about-arrows div{font-size:16px;line-height: 39px;cursor:pointer;padding-right:25px;}
-.about-arrows div.prev{margin-top:12px}
+.about-arrows div{font-size:16px;line-height: 39px;cursor:pointer;/* padding-right:25px; */width: 80px;}
+.about-arrows div.prev{margin-top: 11px;}
 .next span,.prev span{font-size:23px;display:block;line-height:25px}
-.prev span{line-height:0}
-.next span{width:100%;text-align:right;padding-right:27px}
+.prev span{line-height:0;font-size: 20px;}
+.next span{width:100%;text-align:right;/* padding-right:27px */}
 .servicesImg{position:absolute;width:100%;z-index:-1;height: 100%;}
 .service{width:20%;float:left;text-align:center;color:#fff;position:relative}
 .service label{font-weight:400;opacity:0;transition:all .5s ease;width:100%;margin-top:6px}
@@ -61,11 +61,11 @@ div#contact{margin-top:118px;color:#3a4b63;padding-bottom:60px}
 button.btn.btn-secondary{width:230px;border-radius:8px;height:42px;margin-top:44px;text-transform:uppercase;font-size:18px;text-align:center;background:var(--color1);border:0;color:#fff}
 #contact button.btn.btn-secondary{margin-top:102px!important}
 .footer-nav{float:left;width:100%}
-.footer-nav ul{padding-left:0;text-align:center;font-size:18px}
+.footer-nav ul{padding-left:0;text-align:center;font-size: 13px;}
 .footer-nav li{list-style:none;display:inline}
 .footer-nav li:after{content:"|";padding:0 5px}
 .footer-nav li:last-of-type:after{display:none}
-footer.footer{background:#1b232e;height:100px;margin-top:40px;padding-top:40px;text-align:center;color:#a5a5a5;padding-bottom:40px;height:130px;font-size:20px}
+footer.footer{background:#1b232e;height:100px;margin-top:40px;padding-top: 30px;text-align:center;color:#a5a5a5;padding-bottom: 30px;height: 108px;font-size: 13px;}
 footer.footer a{color:#a5a5a5}
 .serviceSquare{width:12px;height:12px;background:var(--color1);position:absolute;left:50%;margin-left:-7px;top:50%;margin-top:-7px;cursor:pointer;display:block;z-index:9}
 .service-img{opacity:0;transition:all .5s ease}
@@ -95,7 +95,7 @@ footer.footer a{color:#a5a5a5}
 .desktop-nav.open-nav .close{opacity:1;transform:rotate(0deg);z-index:999}
 div#main-content{padding-top:90px;overflow:hidden}
 div#services{position:relative;height:846px}
-.about-arrows .prev div{transform:rotate(180deg);padding-right:0;margin-top:15px}
+.about-arrows .prev div{transform:rotate(180deg);padding-right:0;margin-top: 18px;}
 .data-visible .plus-icon{display:none}
 .close-icon{color:#fff;font-size:21px;font-weight:300;border:3px solid;width:35px;height:35px;text-align:center;line-height:21px;cursor:pointer}
 .nav-footer{position:absolute;top:85vh;width:100%;left:0;text-align:center}
@@ -110,7 +110,12 @@ div#services{position:relative;height:846px}
 .contact-form textarea:focus,.contact-form input:focus{outline:none}
 button:focus{outline:none}
 .servicesImg img{height: 846px;min-width: 100%;}
+.desktop{display:block}
 @media screen and (max-width: 992px) {
+   .desktop{display:none}
+    #services h2.sec-title{
+    font-size: 39px;
+}
 .about_sec{font-size:16px}
 
 .about-arrows {
@@ -121,8 +126,11 @@ button:focus{outline:none}
     width: 100%;
     height: 50px;
 }
-    .next span{padding-right:0}
-    .about-arrows div{padding-right:0
+    .next span{padding-right:0;font-size: 20px;}
+    .about-arrows div{
+    padding-right:0;
+    width: 60px;
+    line-height: 20px;
     }
 .video iframe{height: 56vh;}
 div#contact{margin-top:0}
@@ -175,14 +183,14 @@ header.header{max-width:100%;padding: 15.5px 20px;}
 header .logo {
     width: 100px;
 }
-.service-img{opacity:1}
+.service-img{opacity:1;height: 80px;}
 .serviceSquare{display:none}
 .service label{opacity:1;font-size: 16px;}
 .numbers{margin-left:0}
 .services-icons{padding-top:100px;width:100%}
 .service{width:calc(100% / 3)}
 .service:nth-of-type(4),.service:nth-of-type(5){display:none}
-.services-icons{padding-top:20px;width:100%}
+.services-icons{padding-top: 60px;width:100%;}
 .service{width:calc(100% / 3)}
 .service:nth-of-type(4),.service:nth-of-type(5){display:none}
 .advImg{height:100%;width:auto}
@@ -199,6 +207,10 @@ div#about {
 li.login-nav a{color:var(--color1)}
 .video{margin-top:0;}
 .mobile{display:block}
+
+.mobile.about-img {
+    margin-top: 30px;
+}
 button.mobile.btn.btn-primary.main-btn{margin-top:130px;left:50%;position:relative;margin-left:-115px;display:inline-block}
 .mobile-nav{display:block}
 .mobile-nav-footer .btn{width:100%;height:45px;font-size:19px;color:var(--color1);background:transparent;border:3px solid;margin:20px 0}

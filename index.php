@@ -163,7 +163,7 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 												$content = wpautop( $content );
 												echo $content;
 											?>
-											<button type="button" class="btn btn-primary">
+											<button  type="button" class="btn btn-primary desktop">
 												<?php echo get_post_meta( get_the_ID(), 'btn2', true ); ?>
 											</button>
 
@@ -175,9 +175,11 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 												$content = wpautop( $content );
 												echo $content;
 											?>
-											<button type="button" class="btn btn-primary">
+											<button type="button" class="btn btn-primary desktop">
 												<?php echo get_post_meta( get_the_ID(), 'btn3', true ); ?>
 											</button>
+
+											<div class="mobile about-img"><img src="<?php echo get_post_meta( get_the_ID(), 'podcast_file', true ); ?>" /></div>
 
 									</div>
 								</div>
