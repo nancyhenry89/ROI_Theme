@@ -24,18 +24,18 @@ header{float:left;width:100%;padding-bottom:20px}
 .adv-content{opacity:0}
 .video{margin-top:13px;float:left;width:100%}
 div#mainSec{padding-bottom:115px}
-.double-sec .container .labels{padding-top:296px;padding-left:54px;float:left}
+.double-sec .container .labels{padding-top:296px;/* padding-left:54px; */float:left;}
 .advImg img{height:100%;min-width: 100%;}
 .data-show{opacity:1;transform:translateY(40px) translateZ(0);transition:transform 1s cubic-bezier(.23,1,.32,1),opacity .2s}
 .adv-content{padding-top:40px;font-size:14px;float:left;width:700px;position:absolute;left:calc(563px + 28px);bottom:160px;transition:all .5s ease;max-width:100%}
 #services .adv-content{bottom:418px}
 .adv-content a{color:#ca9f19;font-size:20px;text-transform:uppercase;padding-bottom:4px;border-bottom:1px solid;text-decoration: none;}
 .sec.data-visible{background:rgba(32,40,50,.8)}
-div#about{padding-top:83px!important}
-#about h2.sec-title{color:var(--color1);text-transform:uppercase;font-size:36px;margin-bottom:23px;margin-top: 24px;}
-button.btn.btn-primary{width:230px;border-radius:8px;height:42px;margin-top: 54px;text-transform:uppercase;font-size:18px;text-align:center;background:#3a4b63;border:0;}
+div#about{padding-top:83px!important;position: relative;padding-bottom: 100px!important;}
+#about h2.sec-title{color:var(--color1);text-transform:uppercase;font-size:36px;margin-bottom:23px;margin-top: 0;}
+button.btn.btn-primary{width:230px;border-radius:8px;height:42px;margin-top: 24px;text-transform:uppercase;font-size:18px;text-align:center;background:#3a4b63;border:0;}
 .mobile{display:none}
-.about-arrows{margin-top: 74px;font-size:20px;float:left;width:100%;margin-bottom:120px;}
+.about-arrows{/* margin-top: 74px; */font-size:20px;float:left;/* margin-bottom:120px; */position: absolute;bottom: 90px;left: 8%;width: 565px;}
 .prev{float:left}
 .next{float:right}
 .about-arrows i{display:block;font-size:32px}
@@ -47,7 +47,7 @@ button.btn.btn-primary{width:230px;border-radius:8px;height:42px;margin-top: 54p
 .servicesImg{position:absolute;width:100%;z-index:-1;height: 100%;}
 .service{width:20%;float:left;text-align:center;color:#fff;position:relative}
 .service label{font-weight:400;opacity:0;transition:all .5s ease;width:100%;margin-top:6px}
-#services .labels{padding-top:356px;padding-left:54px;float:left;font-weight:300}
+#services .labels{padding-top:356px;/* padding-left:54px; */float:left;font-weight:300;}
 #services h2.sec-title{font-size:47px;text-transform:uppercase;color:#fff;margin:0;font-weight:300;float:left;margin-right:21px}
 #services .labels label{font-size:25px;text-transform:uppercase;color:#fff;font-weight:300;width:100%;margin:0}
 #services .plus-icon{float:left;z-index:9;position:relative}
@@ -55,7 +55,7 @@ button.btn.btn-primary{width:230px;border-radius:8px;height:42px;margin-top: 54p
 div#contact{margin-top:118px;color:#3a4b63;padding-bottom:60px}
 #contact h4.sec-title{text-align:center;text-transform:uppercase;color:#3a4b63;font-size:28px;margin-bottom:0}
 #contact .slogan{color:var(--color1);text-align:center;text-transform:uppercase;font-size:53px;margin-bottom:76px}
-.join,.support{padding-left:50px}
+.support{padding-left:50px;}
 .join h6,.support h6{font-size:23px;font-weight:300}
 .support{border-left:3px solid;margin-bottom: 60px;}
 button.btn.btn-secondary{width:230px;border-radius:8px;height:42px;margin-top:44px;text-transform:uppercase;font-size:18px;text-align:center;background:var(--color1);border:0;color:#fff}
@@ -120,6 +120,9 @@ button:focus{outline:none}
 
 .about-arrows {
     margin-bottom: 40px;
+    width: 90%!important;
+    bottom: -20px;
+    left: 5%!important;
 }
     header.header{position:fixed;box-shadow: 1px -1px 28px 1px #888;}
     .about_sec button.btn.btn-primary {
@@ -134,9 +137,28 @@ button:focus{outline:none}
     }
 .video iframe{height: 56vh;}
 div#contact{margin-top:0}
-.contact-form{top:-58px;height:360px;left:0;padding-left:10%}
+.contact-form{top: -78px;height: 315px;left:0;padding-left:10%;}
 #contact button.btn.btn-primary{margin-top:30px;width:100%}
-#contact button.btn.btn-secondary{margin-top:20px!important;width:100%}
+#contact button.btn.btn-secondary{margin-top:20px!important;width:100%;}
+
+#contact .contact-form button.btn.btn-secondary {
+    margin-top: 5px!important;
+}
+
+.contact-form a {
+    margin-top: -1px;
+    font-size: 17px;
+}
+
+.contact-form textarea {
+    height: 90px;
+    border: 2px solid;
+}
+
+.contact-form input {
+    margin-bottom: 8px;
+    border: 2px solid;
+}
 
 button#contactForm img {
     width: 23px;
@@ -145,7 +167,7 @@ button#contactForm img {
     display: inline-block;
 }
 
-.servicesImg img{max-width:fit-content;transform:translateX(-80px);width:1037px;height: auto;}
+.servicesImg img{/* max-width:fit-content; *//* transform:translateX(-80px); *//* width:1037px; */height: auto;}
 .servicesImg{overflow:hidden;}
 div#services{height:570px}
 .numbers>div.number-turn{opacity:1}
@@ -194,8 +216,8 @@ header .logo {
 .service{width:calc(100% / 3)}
 .service:nth-of-type(4),.service:nth-of-type(5){display:none}
 .advImg{height:100%;width:auto}
-.double-sec .container .labels{padding-top: 60vh;padding-left:10px;}
-.advImg img{width:auto;max-width:fit-content;transform:translateX(-28%)}
+.double-sec .container .labels{padding-top: 48%;padding-left:10px;}
+.advImg img{width:auto;}
 .double-sec{height: calc(100vh - 80px);overflow:hidden;}
 
 div#about {
@@ -223,11 +245,11 @@ button#contactForm {
     /* background-repeat: no-repeat; */
     /* background-position: 80px 12px; */
 }
-.servicesImg img{transform:translateX(-320px);height: 100ch;}
+.servicesImg img{/* transform:translateX(-320px); */height: 100%;}
 }
 @media screen and (min-width: 1400px) {
     #about .container {
-    min-width: 75%;
+    /* min-width: 75%; */
 }
 
 
@@ -250,7 +272,11 @@ div#mainSec{margin-top:50px;padding-bottom:145px}
     line-height: 30px;
 }
 #about h2.sec-title{font-size:50px}
-.about_sec{font-size:16px;line-height: 25px;}
+.about_sec{font-size:16px;line-height: 24px;}
+
+.about-arrows {
+    bottom: 20px;
+}
 button.btn.btn-primary{font-size:24px;height:50px;width:250px}
 .next span,.prev span{font-size:28px}
 #services h2.sec-title{font-size:60px}
@@ -260,6 +286,6 @@ button.btn.btn-primary{font-size:24px;height:50px;width:250px}
 .join h6,.support h6{font-size:30px}
 #contact p{font-size:16px}
 button.btn.btn-secondary{font-size:24px;height:50px;width:250px}
-#contact button.btn.btn-secondary{margin-top:130px!important}
+#contact button.btn.btn-secondary{margin-top: 91px!important;}
 .adv-content{bottom:145px}
 }

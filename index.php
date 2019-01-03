@@ -140,7 +140,7 @@ $loop = new WP_Query( array( 'post_type' => 'aboutUS') );
 if ( $loop->have_posts() ) :
 while ( $loop->have_posts() ) : $loop->the_post(); ?>
 						<div class="row">
-							<div class="col-md-5">
+							<div class="col-md-6">
 								<h2 class="sec-title"><?php echo get_post_meta( get_the_ID(), 'sectionName', true ); ?></h2>
 								<div class="about_cont">
 									<div class="about_sec one" about="1">
@@ -183,20 +183,9 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
 									</div>
 								</div>
-								<div class="about-arrows">
-									<div class="prev dont-show">
-									<span>PREV</span>
-										<div><img src="<?php echo get_template_directory_uri(); ?>/img/arrow.png"/></div>
-										
-									</div>
-									<div class="next" data="1">
-									<span>NEXT</span>
-									<div><img src="<?php echo get_template_directory_uri(); ?>/img/arrow.png"/></div>
-										
-									</div>
-								</div>
+
 							</div>
-							<div class="col-md-7">
+							<div class="col-md-6">
 								<div class="about-img">
 									<img src="<?php echo get_post_meta( get_the_ID(), 'podcast_file', true ); ?>" />
 								</div>
@@ -209,6 +198,18 @@ endif;
 wp_reset_postdata();
 ?>
 				</div>
+				<div class="about-arrows">
+									<div class="prev dont-show">
+									<span>PREV</span>
+										<div><img src="<?php echo get_template_directory_uri(); ?>/img/arrow.png"/></div>
+										
+									</div>
+									<div class="next" data="1">
+									<span>NEXT</span>
+									<div><img src="<?php echo get_template_directory_uri(); ?>/img/arrow.png"/></div>
+										
+									</div>
+								</div>
 			</div>
 
 			<!--about us end-->

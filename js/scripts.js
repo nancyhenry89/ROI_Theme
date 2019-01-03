@@ -19,7 +19,6 @@
         if (!isMobile.matches) {
             //number counter desktop
             calcLeft();
-
             calcWidth();
             $('.number').each(function() {
                 $(this).prop('Counter', 0).animate({
@@ -32,6 +31,7 @@
                     }
                 });
             });
+            aboutArrows();
         } else {
 
             //number counter mobile
@@ -47,6 +47,7 @@
 
 
             }, 2000);
+            windowHeight();
         }
     });
 
@@ -165,6 +166,10 @@
         if (!isMobile.matches) {
             calcLeft();
             calcWidth();
+            aboutArrows();
+        }else{
+
+           
         }
     });
 
@@ -192,3 +197,21 @@ function calcWidth() {
     $('#services .adv-content').css('width', affWidth);
 
 }
+
+//set sec height to 100% for mobile
+function windowHeight(){
+
+    var height=$(window).height()-80;
+    $('#mainSec').css('height',height); 
+    $('#advertisers').css('height',height/2); 
+    $('#affiliates').css('height',height/2); 
+    $('#services').css('height',height); 
+    }
+
+    function aboutArrows(){
+        var width=$('.about_cont').width()-20,
+        left = $('.about_cont').offset().left;
+        $('.about-arrows').css('width',width);
+        $('.about-arrows').css('left',left);
+
+    }
