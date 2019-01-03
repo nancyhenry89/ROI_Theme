@@ -14,7 +14,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
-        <link id="mainStyle" rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/styles.css" >
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/styles.css" >
 
 		<?php wp_head(); ?>
 		<script>
@@ -45,49 +45,12 @@
 					</div>
 					<!-- /logo -->
 					<div class="header-btns">
+					<div class="">Already registered?</div>
+
 						<div class="login"><a href="#">login</a></div>
-						<div class="sign-up"><a href="sign-up	">Sign Up</a></div>
 					</div>
 					<!-- nav -->
-					<div class="desktop-nav">
-						<div class="open">	<img src="<?php echo get_template_directory_uri(); ?>/img/open.png" ></div>
-						<div class="close">	<img src="<?php echo get_template_directory_uri(); ?>/img/close.png" ></div>
-						<ul>
-							<li><a href="#advertisers">Advertisers</a></li>
-							<li><a href="#affiliates">Affiliates</a></li>
-							<li><a href="#about">About</a></li>
-							<li><a href="#services">Services</a></li>
-							<li><a href="#contact">Contact</a></li>
-							<div class="nav-footer">
-					<a href="marketing@roi.boutique" target="_top">marketing@roi.boutique</a>
 
-					</div>
-						</ul>
-
-					</div>
-					<div class="mobile-nav">
-						<div class="open">	<img src="<?php echo get_template_directory_uri(); ?>/img/open.png" ></div>
-						<div class="close">	<img src="<?php echo get_template_directory_uri(); ?>/img/close.png" ></div>
-						<ul>
-							<li class="login-nav"><a href="#">Login</a></li>
-							<li><a href="#advertisers">Advertisers</a></li>
-							<li><a href="#affiliates">Affiliates</a></li>
-							<li><a href="#about">About</a></li>
-							<li><a href="#services">Services</a></li>
-							<li><a href="#contact">Contact</a></li>
-							<div class="mobile-nav-footer">
-								<div>
-										<p>Don’t waste you time, </p>
-										<p>Sign up and join our teams </p>
-								</div>
-								<button class="btn">Start Earning Now!</button>
-								<p>Ask us anything </p>
-								<a href="marketing@roi.boutique" target="_top">marketing@roi.boutique</a>
-								
-							</div>
-						</ul>
-
-					</div>
 					<!--<nav class="nav" role="navigation">
 						<?php //html5blank_nav(); ?>
 					</nav>-->

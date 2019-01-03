@@ -18,8 +18,9 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
 					<div class="video">
 						<div class="col-md-12">
-							<iframe src="<?php echo get_post_meta( get_the_ID(), 'vidLink', true ); ?>">
-							</iframe>
+							<video autoplay controls>
+							<source src="<?php echo get_post_meta( get_the_ID(), 'vidLink', true ); ?>" type="video/mp4">
+</video>
 						</div>
 					</div>
 					<div class="numbers">
@@ -63,7 +64,8 @@ $loop = new WP_Query( array( 'post_type' => 'advertisers') );
 if ( $loop->have_posts() ) :
 while ( $loop->have_posts() ) : $loop->the_post(); ?>
 				<div class="advImg">
-					<img src="<?php echo get_post_meta( get_the_ID(), 'podcast_file', true ); ?>" />
+					<img class="desktop" src="<?php echo get_post_meta( get_the_ID(), 'podcast_file', true ); ?>" />
+					<img class="mobile" src="<?php echo get_post_meta( get_the_ID(), 'podcast_file_mobile', true ); ?>" />
 				</div>
 				<div class="container">
 						<div class="labels">
@@ -102,7 +104,9 @@ $loop = new WP_Query( array( 'post_type' => 'affiliates') );
 if ( $loop->have_posts() ) :
 while ( $loop->have_posts() ) : $loop->the_post(); ?>
 						<div class="advImg">
-							<img src="<?php echo get_post_meta( get_the_ID(), 'podcast_file', true ); ?>" />
+							<img class="desktop" src="<?php echo get_post_meta( get_the_ID(), 'podcast_file', true ); ?>" />
+							<img class="mobile" src="<?php echo get_post_meta( get_the_ID(), 'podcast_file_mobile', true ); ?>" />
+
 						</div>
 						<div class="container">
 						<div class="labels">
@@ -163,9 +167,10 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 												$content = wpautop( $content );
 												echo $content;
 											?>
-											<button  type="button" class="btn btn-primary desktop">
+										<!--	<button  type="button" class="btn btn-primary desktop">
 												<?php echo get_post_meta( get_the_ID(), 'btn2', true ); ?>
 											</button>
+-->
 
 									</div>
 									<div class="about_sec three dont-show" about="3">
@@ -175,9 +180,10 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 												$content = wpautop( $content );
 												echo $content;
 											?>
-											<button type="button" class="btn btn-primary desktop">
+										<!--	<button type="button" class="btn btn-primary desktop">
 												<?php echo get_post_meta( get_the_ID(), 'btn3', true ); ?>
 											</button>
+-->
 
 											<div class="mobile about-img"><img src="<?php echo get_post_meta( get_the_ID(), 'podcast_file', true ); ?>" /></div>
 
@@ -223,7 +229,8 @@ if ( $loop->have_posts() ) :
 while ( $loop->have_posts() ) : $loop->the_post(); ?>
 									<div class="servicesImg">
 										
-								<img src="<?php echo get_post_meta( get_the_ID(), 'services_bg', true ); ?>" />
+								<img class="desktop" src="<?php echo get_post_meta( get_the_ID(), 'services_bg', true ); ?>" />
+								<img class="mobile" src="<?php echo get_post_meta( get_the_ID(), 'services_bg_mobile', true ); ?>" />
 							</div>
   <div class="container">
 						<div class="row">

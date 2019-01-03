@@ -155,9 +155,11 @@
     //contactform open
     $('#contactForm').click(function() {
         $('.contact-form').fadeIn();
+        $('#contact').addClass("contact-open")
     });
     $('.contact-form .close').click(function() {
         $('.contact-form').fadeOut();
+        $('#contact').removeClass("contact-open")
 
     });
     $(window).resize(function() {
@@ -172,7 +174,6 @@
            
         }
     });
-
 
 })(jQuery, this);
 
@@ -203,8 +204,8 @@ function windowHeight(){
 
     var height=$(window).height()-80;
     $('#mainSec').css('height',height); 
-    $('#advertisers').css('height',height/2); 
-    $('#affiliates').css('height',height/2); 
+    $('#advertisers').css('height',height); 
+    $('#affiliates').css('height',height); 
     $('#services').css('height',height); 
     }
 

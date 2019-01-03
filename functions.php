@@ -536,6 +536,7 @@ function credits_meta_advertisers() {
   $linkText = $custom["linkText"][0];
   $link = $custom["link"][0];
   $podcast_file = $custom["podcast_file"][0];
+  $podcast_file_mobile = $custom["podcast_file_mobile"][0];
 
 ?>
 <p><label>Section Name</label><br />
@@ -550,6 +551,7 @@ function credits_meta_advertisers() {
   <textarea type="text" name="link"><?php echo $link; ?></textarea></p>
   <div>
 
+<h3>background for desktop</h3>
 <table>
 <tr valign = "top">
 <td>
@@ -566,19 +568,41 @@ name = "img_txt_id"
 id = "img_txt_id"
 value = "" />
 </div>  
+
+<h3>background for mobile</h3>
+
+<table>
+<tr valign = "top">
+<td>
+<input type = "text"
+name = "podcast_file_mobile"
+id = "podcast_file"
+size = "70"
+value = "<?php echo $podcast_file_mobile; ?>" />
+<input id = "upload_image_button"
+type = "button"
+value = "Upload">
+</td> </tr> </table> <input type = "hidden"
+name = "img_txt_id"
+id = "img_txt_id"
+value = "" />
+</div>  
 <script type = "text/javascript">
 
 
         // Uploading files
+        jQuery('#upload_image_button').live('click', function(podcast) {
         var file_frame;
-    jQuery('#upload_image_button').live('click', function(podcast) {
-        podcast.preventDefault();
 
+        podcast.preventDefault();
+        var btn=jQuery(this);
+        console.log(btn);
         // If the media frame already exists, reopen it.
         if (file_frame) {
             file_frame.open();
             return;
         }
+        console.log('1',btn);
 
         // Create the media frame.
         file_frame = wp.media.frames.file_frame = wp.media({
@@ -588,13 +612,16 @@ value = "" />
             },
             multiple: false // Set to true to allow multiple files to be selected
         });
+        console.log('2',btn);
 
         // When a file is selected, run a callback.
         file_frame.on('select', function(){
             // We set multiple to false so only get one image from the uploader
             attachment = file_frame.state().get('selection').first().toJSON();
             var url = attachment.url;
-  var field = document.getElementById("podcast_file");
+            var field= btn.prev()[0];
+            //var field = document.getElementById("podcast_file");
+            console.log('3',btn);
 
             field.value = url; //set which variable you want the field to have
         });
@@ -615,6 +642,7 @@ function save_details_advertisers(){
     update_post_meta($post->ID, "linkText", $_POST["linkText"]);
     update_post_meta($post->ID, "link", $_POST["link"]);
     update_post_meta($post->ID, "podcast_file", $_POST["podcast_file"]);
+    update_post_meta($post->ID, "podcast_file_mobile", $_POST["podcast_file_mobile"]);
 
     
 
@@ -710,7 +738,7 @@ function credits_meta_affiliates() {
   $linkText = $custom["linkText"][0];
   $link = $custom["link"][0];
   $podcast_file = $custom["podcast_file"][0];
-
+  $podcast_file_mobile = $custom["podcast_file_mobile"][0];
 ?>
 <p><label>Section Name</label><br />
   <input type="text" name="sectionName" value=<?php echo $sectionName; ?>></p>
@@ -724,6 +752,7 @@ function credits_meta_affiliates() {
   <textarea type="text" name="link"><?php echo $link; ?></textarea></p>
   <div>
 
+<h3>background for desktop</h3>
 <table>
 <tr valign = "top">
 <td>
@@ -739,20 +768,41 @@ value = "Upload">
 name = "img_txt_id"
 id = "img_txt_id"
 value = "" />
+
+<h3>background for mobile</h3>
+
+<table>
+<tr valign = "top">
+<td>
+<input type = "text"
+name = "podcast_file_mobile"
+id = "podcast_file"
+size = "70"
+value = "<?php echo $podcast_file_mobile; ?>" />
+<input id = "upload_image_button"
+type = "button"
+value = "Upload">
+</td> </tr> </table> <input type = "hidden"
+name = "img_txt_id"
+id = "img_txt_id"
+value = "" />
 </div>  
 <script type = "text/javascript">
 
 
         // Uploading files
+        jQuery('#upload_image_button').live('click', function(podcast) {
         var file_frame;
-    jQuery('#upload_image_button').live('click', function(podcast) {
-        podcast.preventDefault();
 
+        podcast.preventDefault();
+        var btn=jQuery(this);
+        console.log(btn);
         // If the media frame already exists, reopen it.
         if (file_frame) {
             file_frame.open();
             return;
         }
+        console.log('1',btn);
 
         // Create the media frame.
         file_frame = wp.media.frames.file_frame = wp.media({
@@ -762,13 +812,16 @@ value = "" />
             },
             multiple: false // Set to true to allow multiple files to be selected
         });
+        console.log('2',btn);
 
         // When a file is selected, run a callback.
         file_frame.on('select', function(){
             // We set multiple to false so only get one image from the uploader
             attachment = file_frame.state().get('selection').first().toJSON();
             var url = attachment.url;
-  var field = document.getElementById("podcast_file");
+            var field= btn.prev()[0];
+            //var field = document.getElementById("podcast_file");
+            console.log('3',btn);
 
             field.value = url; //set which variable you want the field to have
         });
@@ -789,6 +842,7 @@ function save_details_affiliates(){
     update_post_meta($post->ID, "linkText", $_POST["linkText"]);
     update_post_meta($post->ID, "link", $_POST["link"]);
     update_post_meta($post->ID, "podcast_file", $_POST["podcast_file"]);
+    update_post_meta($post->ID, "podcast_file_mobile", $_POST["podcast_file_mobile"]);
 
     
 
@@ -1077,6 +1131,7 @@ function credits_meta_services() {
   $sectionName = $custom["sectionName"][0];
   $sectionLabel = $custom["sectionLabel"][0];
   $services_bg = $custom["services_bg"][0];
+  $services_bg_mobile = $custom["services_bg_mobile"][0];
 
   $service1 = $custom["service1"][0];
   $service2 = $custom["service2"][0];
@@ -1097,11 +1152,20 @@ function credits_meta_services() {
   <input type="text" name="sectionName" value=<?php echo $sectionName; ?>></p>
   <p><label>Section Label</label><br />
   <textarea type="text" name="sectionLabel"><?php echo $sectionLabel; ?></textarea></p>
-  <p><label>Services background</label><br />
+  <p><label>Services background for desktop</label><br />
   <table>
 <tr valign = "top">
 <td>
 <input type = "text" name = "services_bg" id = "podcast_file" size = "70" value = "<?php echo $services_bg; ?>" />
+<input id = "upload_image_button" type = "button" value = "Upload">
+</td> </tr> </table> 
+<input type = "hidden" name = "img_txt_id" id = "img_txt_id" value = "" />
+
+  <p><label>Services background for mobile</label><br />
+  <table>
+<tr valign = "top">
+<td>
+<input type = "text" name = "services_bg_mobile" id = "podcast_file" size = "70" value = "<?php echo $services_bg_mobile; ?>" />
 <input id = "upload_image_button" type = "button" value = "Upload">
 </td> </tr> </table> 
 <input type = "hidden" name = "img_txt_id" id = "img_txt_id" value = "" />
@@ -1238,6 +1302,8 @@ function save_details_services(){
     update_post_meta($post->ID, "service4_icon", $_POST["service4_icon"]);
     update_post_meta($post->ID, "service5_icon", $_POST["service5_icon"]);
     update_post_meta($post->ID, "services_bg", $_POST["services_bg"]);
+
+    update_post_meta($post->ID, "services_bg_mobile", $_POST["services_bg_mobile"]);
 
     
   
