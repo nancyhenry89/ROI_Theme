@@ -26,7 +26,7 @@ header{float:left;width:100%;padding-bottom:20px}
 .video{margin-top:13px;float:left;width:100%;height: 490px;overflow: hidden;}
 div#mainSec{padding-bottom:115px}
 .double-sec .container .labels{padding-top:296px;float:left}
-.advImg img{height:100%;min-width:100%}
+.advImg img{height:100%;min-width:100%;object-fit: cover;}
 .data-show{opacity:1;transform:translateY(40px) translateZ(0);transition:transform 1s cubic-bezier(.23,1,.32,1),opacity .2s}
 .adv-content{padding-top:40px;font-size:14px;float:left;width:700px;position:absolute;left:calc(563px + 28px);bottom:160px;transition:all .5s ease;max-width:100%}
 #services .adv-content{bottom:418px}
@@ -51,7 +51,7 @@ button.btn.btn-primary{width:230px;border-radius:8px;height:42px;margin-top:18px
 #services .labels{padding-top:356px;float:left;font-weight:300}
 #services h2.sec-title{font-size:47px;text-transform:uppercase;color:#fff;margin:0;font-weight:300;float:left;margin-right:21px}
 #services .labels label{font-size:25px;text-transform:uppercase;color:#fff;font-weight:300;width:100%;margin:0}
-#services .plus-icon{float:left;z-index:9;position:relative;}
+#services .plus-icon{float:left;z-index:9;position:relative;margin-top: 12px;}
 .services-icons{width:90%;float:left;padding-top:204px}
 div#contact{margin-top:118px;color:#3a4b63;padding-bottom:60px}
 #contact h4.sec-title{text-align:center;text-transform:uppercase;color:#3a4b63;font-size:28px;margin-bottom:0}
@@ -60,7 +60,7 @@ div#contact{margin-top:118px;color:#3a4b63;padding-bottom:60px}
 .join h6,.support h6{font-size:23px;font-weight:300}
 .support{border-left:3px solid;margin-bottom:60px}
 button.btn.btn-secondary{width:230px;border-radius:8px;height:42px;margin-top:44px;text-transform:uppercase;font-size:18px;text-align:center;background:var(--color1);border:0;color:#fff}
-#contact button.btn.btn-secondary{margin-top:84px!important}
+#contact button.btn.btn-secondary{margin-top: 77px!important;}
 .footer-nav{float:left;width:100%}
 .footer-nav ul{padding-left:0;text-align:center;font-size:13px}
 .footer-nav li{list-style:none;display:inline}
@@ -203,9 +203,17 @@ header .logo{width:160px}
 .header-btns .login a{font-size:18px}
 .header-btns .sign-up a{font-size:18px}
 div#mainSec{margin-top:50px;padding-bottom:145px}
+
+.advImg img {
+    object-fit: initial;
+}
 .double-sec label{font-size:30px}
 .double-sec h2.sec-title{font-size:50px}
-.plus-icon{width:40px;height:40px;border:4px solid;font-size:29px;line-height:27px;margin-top: 20px;}
+.plus-icon{width:40px;height:40px;border:4px solid;font-size:29px;line-height:27px;margin-top: 12px;}
+
+#services .plus-icon {
+    margin-top: 20px;
+}
 .close-icon{width:40px;height:40px;font-size:29px;line-height:30px}
 #about h2.sec-title{font-size:50px}
 .about_sec{font-size:16px;line-height:23px}
