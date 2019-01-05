@@ -341,6 +341,7 @@ function credits_meta() {
   $countries = $custom["countries"][0];
   $epc = $custom["epc"][0];
   $vidLink = $custom["vidLink"][0];
+  $vidThumb= $custom["vidThumb"][0];
   ?>
 
     <p><label>video Link</label><br />
@@ -352,6 +353,14 @@ function credits_meta() {
 </td> </tr> </table> 
 <input type = "hidden" name = "img_txt_id" id = "img_txt_id" value = "" />
 
+    <p><label>video thumbnail</label><br />
+    <table>
+<tr valign = "top">
+<td>
+<input type = "text" name = "vidThumb" id = "podcast_file" size = "70" value = "<?php echo $vidThumb; ?>" />
+<input id = "upload_image_button" type = "button" value = "Upload">
+</td> </tr> </table> 
+<input type = "hidden" name = "img_txt_id" id = "img_txt_id" value = "" />
 
   <p><label>Roi</label><br />
   <input type="number" name="roi" value=<?php echo $roi; ?>></p>
@@ -364,36 +373,43 @@ function credits_meta() {
 
 
 // Uploading files
-var file_frame;
+        
 jQuery('#upload_image_button').live('click', function(podcast) {
-podcast.preventDefault();
+        var file_frame;
 
-// If the media frame already exists, reopen it.
-if (file_frame) {
-    file_frame.open();
-    return;
-}
+        podcast.preventDefault();
+        var btn=jQuery(this);
+        console.log(btn);
+        // If the media frame already exists, reopen it.
+        if (file_frame) {
+            file_frame.open();
+            return;
+        }
+        console.log('1',btn);
 
-// Create the media frame.
-file_frame = wp.media.frames.file_frame = wp.media({
-    title: jQuery(this).data('uploader_title'),
-    button: {
-        text: jQuery(this).data('uploader_button_text'),
-    },
-    multiple: false // Set to true to allow multiple files to be selected
-});
+        // Create the media frame.
+        file_frame = wp.media.frames.file_frame = wp.media({
+            title: jQuery(this).data('uploader_title'),
+            button: {
+                text: jQuery(this).data('uploader_button_text'),
+            },
+            multiple: false // Set to true to allow multiple files to be selected
+        });
+        console.log('2',btn);
 
-// When a file is selected, run a callback.
-file_frame.on('select', function(){
-    // We set multiple to false so only get one image from the uploader
-    attachment = file_frame.state().get('selection').first().toJSON();
-    var url = attachment.url;
-var field = document.getElementById("podcast_file");
+        // When a file is selected, run a callback.
+        file_frame.on('select', function(){
+            // We set multiple to false so only get one image from the uploader
+            attachment = file_frame.state().get('selection').first().toJSON();
+            var url = attachment.url;
+            var field= btn.prev()[0];
+            //var field = document.getElementById("podcast_file");
+            console.log('3',btn);
 
-    field.value = url; //set which variable you want the field to have
-});
-file_frame.open();
-});
+            field.value = url; //set which variable you want the field to have
+        });
+        file_frame.open();
+    });
 
 </script>
   <?php
@@ -402,6 +418,7 @@ add_action('save_post', 'save_details');
 function save_details(){
 	global $post;
     update_post_meta($post->ID, "vidLink", $_POST["vidLink"]);
+    update_post_meta($post->ID, "vidThumb", $_POST["vidThumb"]);
 	update_post_meta($post->ID, "roi", $_POST["roi"]);
 	update_post_meta($post->ID, "countries", $_POST["countries"]);
     update_post_meta($post->ID, "epc", $_POST["epc"]);
