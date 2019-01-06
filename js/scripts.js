@@ -1,4 +1,10 @@
 (function($, root, undefined) {
+    //remove empty p tags
+    $('p').each(function(index, item) {
+        if($.trim($(item).text()) === "") {
+            $(item).remove(); // $(item).remove();
+        }
+    });
     var isMobile = window.matchMedia("only screen and (max-width: 992px)");
 
     $(function() {
@@ -174,6 +180,32 @@
         }else{
 
            
+        }
+    });
+    $.fn.isInViewport = function() {
+        var elementTop = $(this).offset().top;
+        var elementBottom = elementTop + $(this).outerHeight();
+    
+        var viewportTop = $(window).scrollTop();
+        var viewportBottom = viewportTop + $(window).height();
+    
+        return elementBottom > viewportTop && elementTop < viewportBottom;
+    };
+    $(window).scroll(function(){
+        if ($('#advertisers').isInViewport()){
+            $('#advertisers .plus-icon').addClass('animate');
+        }else{
+            $('#advertisers .plus-icon').removeClass('animate');
+        }
+        if ($('#affiliates').isInViewport()){
+            $('#affiliates .plus-icon').addClass('animate');
+        }else{
+            $('#affiliates .plus-icon').removeClass('animate');
+        }
+        if ($('#services').isInViewport()){
+            $('#services .plus-icon').addClass('animate');
+        }else{
+            $('#services .plus-icon').removeClass('animate');
         }
     });
 

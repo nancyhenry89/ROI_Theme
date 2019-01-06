@@ -252,9 +252,9 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 												echo $content;
 											?>
 								</p>
-								<a href="<?php echo get_post_meta( get_the_ID(), 'link', true ); ?>">
+								<!--<a href="<?php echo get_post_meta( get_the_ID(), 'link', true ); ?>">
 									<?php echo get_post_meta( get_the_ID(), 'linkText', true ); ?>
-								</a>
+								</a>-->
 							</div>
 
 							<div class="row">
