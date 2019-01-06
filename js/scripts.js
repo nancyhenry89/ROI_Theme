@@ -3,6 +3,7 @@
 
     $(function() {
         'use strict';
+        checklist();
         $('.plus-icon').click(function() {
             $(this).hide();
             var data = $(this).attr('data');
@@ -48,6 +49,7 @@
 
             }, 2000);
             windowHeight();
+            videoHeight();
         }
     });
 
@@ -180,9 +182,10 @@
 
 //left of for show sections 
 function calcLeft() {
-    var advLeft = $('#advertisers .sec-title').offset().left + $('#advertisers .sec-title').width() + 28;
-    var affLeft = $('#affiliates .sec-title').offset().left + $('#affiliates .sec-title').width() + 28;
-    var serLeft = $('#services .sec-title').offset().left + $('#services .sec-title').width() + 28;
+
+    var advLeft =  $('#advertisers .sec-title').width() + 50;
+    var affLeft =  $('#affiliates .sec-title').width() + 50;
+    var serLeft =  $('#services .sec-title').width() + 28;
     $('#advertisers .adv-content').css('left', advLeft);
     $('#affiliates .adv-content').css('left', affLeft);
     $('#services .adv-content').css('left', serLeft);
@@ -216,3 +219,26 @@ function windowHeight(){
         $('.about-arrows').css('left',left);
 
     }
+//checklist open
+function checklist(){
+
+    $('.placeholder').click(function(){
+      
+        if($(this).parents('.checkbox-list').hasClass('open')){
+            $(this).parents('.checkbox-list').removeClass('open');
+        }else{
+            $(this).parents('.checkbox-list').addClass('open');
+        }
+    });
+    $('.options label').click(function(){
+  //      var text=$(this).text();
+    //    $(this).parents('.options').siblings('.placeholder').text(text);
+      //  $('.checkbox-list').removeClass('open');
+    });
+}
+function videoHeight(){
+    var height=$(window).height()-80;
+    vid=height*0.6;
+    $('.video').css('height',vid);
+    $('.video video').css('height',vid);
+}

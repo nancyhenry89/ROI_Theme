@@ -44,8 +44,8 @@
 						</a>
 					</div>
 					<!-- /logo -->
-					<div class="header-btns">
-					<div class="">Already registered?</div>
+					<div class="header-btns sign	">
+					<div class="already">Already registered?</div>
 
 						<div class="login"><a href="#">login</a></div>
 					</div>

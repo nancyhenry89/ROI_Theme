@@ -321,7 +321,7 @@ wp_reset_postdata();
 								<div class="join">
 									<h6>Join Our Network </h6>
 									<p>For over 4 years, we have been aiming to push the standards of online performance marketing, with the help of our talented and experienced marketing professionals. Put simply, our goal is to provide your online business with powerful tools that will expand brand reach and awareness, boost audience engagement and most importantly - improve results.</p>
-									<button class="btn btn-primary">Join now</button>
+									<button class="btn btn-primary"><a href="sign-up">Join now</a></button>
 								</div>
 							</div>
 							<div class="col-md-6">

@@ -36,5 +36,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"  crossorigin="anonymous"></script>
 <script src="<?php echo get_template_directory_uri(); ?>/js/scripts.js"  crossorigin="anonymous"></script>
 
+<script src="<?php echo get_template_directory_uri(); ?>/js/ui.js"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/form.js"></script>
+
 	</body>
 </html>

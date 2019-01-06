@@ -46,7 +46,7 @@
 					<!-- /logo -->
 					<div class="header-btns">
 						<div class="login"><a href="#">login</a></div>
-						<div class="sign-up"><a href="sign-up	">Sign Up</a></div>
+						<div class="sign-up"><a href="sign-up">Sign Up</a></div>
 					</div>
 					<!-- nav -->
 					<div class="desktop-nav">
