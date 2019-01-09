@@ -1,6 +1,7 @@
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
 	<head>
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi">
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
 
@@ -45,7 +46,7 @@
 					</div>
 					<!-- /logo -->
 					<div class="header-btns">
-						<div class="login"><a href="#">login</a></div>
+						<div class="login"><a href="https://go.roi.boutique/">login</a></div>
 						<div class="sign-up"><a href="sign-up">Sign Up</a></div>
 					</div>
 					<!-- nav -->

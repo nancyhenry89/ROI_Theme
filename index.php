@@ -18,7 +18,7 @@ while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
 					<div class="video">
 						<div class="col-md-12">
-							<video autoplay controls poster="<?php echo get_post_meta( get_the_ID(), 'vidThumb', true ); ?>">
+							<video autoplay loop poster="<?php echo get_post_meta( get_the_ID(), 'vidThumb', true ); ?>">
 							<source src="<?php echo get_post_meta( get_the_ID(), 'vidLink', true ); ?>" type="video/mp4">
 </video>
 						</div>

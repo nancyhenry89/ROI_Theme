@@ -8,7 +8,7 @@
 				<!-- /copyright -->
 				<div class="footer-nav">
 					<ul>
-						<li><a href="#">Login</a></li>
+						<li><a href="https://go.roi.boutique/">Login</a></li>
 						<li><a href="#">Privacy Policy</a></li>
 						<li><a href="#">Terms of use</a></li>
 					</ul>

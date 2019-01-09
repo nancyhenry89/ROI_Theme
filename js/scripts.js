@@ -8,7 +8,11 @@
     var isMobile = window.matchMedia("only screen and (max-width: 992px)");
 
     $(function() {
+
         'use strict';
+$("html, body, .wrapper").css({
+    height: $(window).height()
+})
         checklist();
         $('.plus-icon').click(function() {
             $(this).hide();
@@ -68,6 +72,7 @@
             $('a').removeClass('current-sec');
             $(this).addClass('current-sec');
             $('.mobile-nav').removeClass('open-nav');
+            $('.logo').addClass('fixed');
             // On-page links
             if (
                 location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
@@ -100,6 +105,7 @@
 
     $('.desktop-nav .open').click(function() {
         $(this).parents('.desktop-nav').addClass('open-nav');
+        $('.logo').addClass('fixed');
 
     });
 
@@ -107,6 +113,7 @@
 
     $('.desktop-nav .close').click(function() {
         $(this).parents('.desktop-nav').removeClass('open-nav');
+        $('.logo').removeClass('fixed');
     });
 
 
@@ -237,12 +244,13 @@ function calcWidth() {
 //set sec height to 100% for mobile
 function windowHeight(){
 
-    var height=$(window).height()-80;
+    var height=$(window).innerHeight()-80;
     $('#mainSec').css('height',height); 
-    $('#advertisers').css('height',height); 
-    $('#affiliates').css('height',height); 
+    $('#advertisers').css('height',height/2); 
+    $('#affiliates').css('height',height/2); 
     $('#services').css('height',height); 
-    }
+
+}
 
     function aboutArrows(){
         var width=$('.about_cont').width()-20,
