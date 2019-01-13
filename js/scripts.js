@@ -10,10 +10,17 @@
     $(function() {
 
         'use strict';
-$("html, body, .wrapper").css({
-    height: $(window).height()
-})
         checklist();
+        if($('.home').length){
+        
+
+ 
+    $("html, body, .wrapper").css({
+        height: $(window).height()
+})
+}
+document.getElementById('vid').play();
+       
         $('.plus-icon').click(function() {
             $(this).hide();
             var data = $(this).attr('data');
@@ -31,6 +38,7 @@ $("html, body, .wrapper").css({
             //number counter desktop
             calcLeft();
             calcWidth();
+            desktopNav();
             $('.number').each(function() {
                 $(this).prop('Counter', 0).animate({
                     Counter: $(this).text()
@@ -44,7 +52,7 @@ $("html, body, .wrapper").css({
             });
             aboutArrows();
         } else {
-
+            mobileNav();
             //number counter mobile
             var i = 1;
             setInterval(function() {
@@ -63,45 +71,6 @@ $("html, body, .wrapper").css({
         }
     });
 
-    // Select all links with hashes
-    $('a[href*="#"]')
-        // Remove links that don't actually link to anything
-        .not('[href="#"]')
-        .not('[href="#0"]')
-        .click(function(event) {
-            $('a').removeClass('current-sec');
-            $(this).addClass('current-sec');
-            $('.mobile-nav').removeClass('open-nav');
-            $('.logo').addClass('fixed');
-            // On-page links
-            if (
-                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
-                location.hostname == this.hostname
-            ) {
-                // Figure out element to scroll to
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                // Does a scroll target exist?
-                if (target.length) {
-                    // Only prevent default if animation is actually gonna happen
-                    event.preventDefault();
-                    $('html, body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000, function() {
-                        // Callback after animation
-                        // Must change focus!
-                        var $target = $(target);
-                        //   $target.focus();
-                        // if ($target.is(":focus")) { // Checking if the target was focused
-                        //  return false;
-                        // } else {
-                        // $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-                        //    $target.focus(); // Set focus again
-                        //};
-                    });
-                }
-            }
-        });
 
     $('.desktop-nav .open').click(function() {
         $(this).parents('.desktop-nav').addClass('open-nav');
@@ -177,6 +146,7 @@ $("html, body, .wrapper").css({
         $('#contact').removeClass("contact-open")
 
     });
+    
     $(window).resize(function() {
 
 
@@ -198,8 +168,9 @@ $("html, body, .wrapper").css({
     
         return elementBottom > viewportTop && elementTop < viewportBottom;
     };
+
     $(window).scroll(function(){
-        if ($('#advertisers').isInViewport()){
+     /*   if ($('#advertisers').isInViewport()){
             $('#advertisers .plus-icon').addClass('animate');
         }else{
             $('#advertisers .plus-icon').removeClass('animate');
@@ -209,11 +180,13 @@ $("html, body, .wrapper").css({
         }else{
             $('#affiliates .plus-icon').removeClass('animate');
         }
-        if ($('#services').isInViewport()){
-            $('#services .plus-icon').addClass('animate');
+                */
+        if ($('#services .labels').isInViewport()){
+            $('#services .serviceSquare').addClass('animate');
         }else{
-            $('#services .plus-icon').removeClass('animate');
+            $('#services .serviceSquare').removeClass('animate');
         }
+
     });
 
 })(jQuery, this);
@@ -240,7 +213,58 @@ function calcWidth() {
     $('#services .adv-content').css('width', affWidth);
 
 }
+//mobile nav
+function mobileNav(){
+    $('.mobile-nav ul a').click(function(){
+        setTimeout(() => {
+            $('.mobile-nav').removeClass('open-nav');
+        }, 200);
+        
+    });
+}
+// desktop nav
+function desktopNav(){
 
+    // Select all links with hashes
+    $('a[href*="#"]')
+        // Remove links that don't actually link to anything
+        .not('[href="#"]')
+        .not('[href="#0"]')
+        .click(function(event) {
+            $('a').removeClass('current-sec');
+            $(this).addClass('current-sec');
+            $('.mobile-nav').removeClass('open-nav');
+            $('.logo').addClass('fixed');
+            // On-page links
+            if (
+                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+                location.hostname == this.hostname
+            ) {
+                // Figure out element to scroll to
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                // Does a scroll target exist?
+                if (target.length) {
+                    // Only prevent default if animation is actually gonna happen
+                    event.preventDefault();
+                    $('html').animate({
+                        scrollTop: target.offset().top
+                    }, 1000, function() {
+                        // Callback after animation
+                        // Must change focus!
+                        var $target = $(target);
+                        //   $target.focus();
+                        // if ($target.is(":focus")) { // Checking if the target was focused
+                        //  return false;
+                        // } else {
+                        // $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                        //    $target.focus(); // Set focus again
+                        //};
+                    });
+                }
+            }
+        });
+}
 //set sec height to 100% for mobile
 function windowHeight(){
 
